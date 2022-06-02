@@ -1,0 +1,65 @@
+.lession-container{
+    margin-top: 106px;
+    padding-block: 20px;
+    background: #EBECE5;
+    .section-selection{
+        margin: 10px 0;
+    }
+    .lession-select{
+        border-radius: 2px;
+        background: #C4C4C4 url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e") right no-repeat;
+        background-size: 16px 12px;
+        background-position: right 0.75rem center;
+    }
+    .lession-select:focus {
+        border-color: none;
+        outline: 0;
+        box-shadow: none;
+    }
+    .section-search{
+        width: 70%;
+        margin: 24px auto 0;
+    }
+    .section-select:focus {
+        color: #212529;
+        background-color: #fff;
+        border-color: #86b7fe;
+        outline: 0;
+        box-shadow: none;
+    }
+    .btn-section-search{
+        width: 150px;
+        background: #114E7A;
+        color: #fff;
+    }
+    .btn-section-search:hover{
+        background:rgb(117 177 232);
+        border-color: rgb(117 177 232)
+    }
+}
+
+
+.lession-list{
+    margin-top: 32px;
+    border-top: 2px solid rgba(48, 48, 48, 0.2);
+    .lession-list__header{
+        align-items: end;
+    }
+    .lession-list__btn-filter{
+        width: 100px; 
+    }
+    .lession__item {
+        margin-top: 20px;
+        background: rgb(random(255), random(255), random(255));
+        height: 100px;   
+    }
+}
+
+@media (max-width: 992px){
+    .lession-select{
+        margin-top: 10px;
+    }
+    .section-search{
+        width: 90% !important; 
+    }
+}
