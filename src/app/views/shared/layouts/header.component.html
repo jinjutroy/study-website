@@ -9,27 +9,27 @@
   
     <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
       <ul class="nav nav-tabs flex-grow-1 justify-content-center mx-5">
-        <li class="nav-item ">
-          <a class="nav-link active" routerLink="home">Trang chủ</a>
+        <li (click)='handlerClickNavbar($event)'  class="nav-item ">
+          <a class="nav-link active" id="home"[ngClass]="{'active': active === 'home'}"  routerLink="home">Trang chủ</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="lession">Bài giảng</a>
+        <li (click)='handlerClickNavbar($event)' class="nav-item">
+          <a class="nav-link" id="lession"  [ngClass]="{'active': active === 'lession'}" routerLink="lession">Bài giảng</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="schedule">Thời khóa biểu</a>
+        <li  (click)='handlerClickNavbar($event)' class="nav-item">
+          <a id="schedule" class="nav-link" [ngClass]="{'active': active === 'schedule'}" routerLink="schedule">Thời khóa biểu</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Tin tức</a>
+        <li (click)='handlerClickNavbar($event)' class="nav-item">
+          <a  id="news" class="nav-link" [ngClass]="{'active': active === 'news'}" routerLink="news">Tin tức</a>
         </li>
-        <li class="nav-item dropdown">
+        <li (click)='handlerClickNavbar($event)' class="nav-item dropdown">
           <a class="nav-link  dropdown-toggle" href="#" id="dropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Xem thêm
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item active " aria-current="true" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Về chúng tôi</a>
+            <a class="dropdown-item" href="#">Tìm kiếm</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="#">Hỏi đáp</a>
           </div>
         </li> 
       </ul>

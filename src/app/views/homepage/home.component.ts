@@ -15,5 +15,5 @@ export class HomeComponent {
   ];
   aboutus_image: string = "assets/images/aboutus.png";
   activityImageUrl: string = "assets/images/activity.png";
-
+  
 }
