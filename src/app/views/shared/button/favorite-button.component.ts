@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-favorite-button',
@@ -6,11 +6,13 @@ import { Component, Input, Output } from '@angular/core';
   styleUrls: ["favorite-button.component.scss"]
 })
 
-export class FavoriteButtonComponent {
-  @Input() favourite: boolean = true; 
-
-  toggleFavorite() {
-    console.log(this.favourite);
+export class FavoriteButtonComponent implements OnInit {  
+  @Input()
+    favourite="favourite-button"; 
+  constructor(){}
+  ngOnInit(): void {
+  } 
+  toggleFavorite() { 
 
   }
-}
+} 

@@ -1,11 +1,15 @@
+import { QuestionComponent } from './views/question/question.component';
+import { HomeComponent } from './views/homepage/home.component';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LessionComponent } from './views/lession/lession.component';
 
 const routes: Routes = [
-  {
-    path: 'settings',
-    loadChildren: () => import('./views/homepage/home.module')
-  },
+  
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'lession', component: LessionComponent },
+  { path: 'q&a', component: QuestionComponent },
 ];
 
 @NgModule({

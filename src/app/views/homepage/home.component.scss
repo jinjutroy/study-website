@@ -1,5 +1,5 @@
 .homepage{
-    margin-top: 107px;
+    margin-top: 106px;
 }
 .carousel__image{ 
     max-width: 400px;
@@ -67,5 +67,9 @@
     .activity-button{
         text-align: center;
         margin-top: 20px;
+        a{
+            text-decoration: none;
+            color: #000;
+        }
     }
 }

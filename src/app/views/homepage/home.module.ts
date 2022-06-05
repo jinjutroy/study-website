@@ -1,18 +1,18 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { SharedModule } from './../shared/shared.module';
+import { NgModule } from '@angular/core'; 
 
 import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './home.component';
-import {FavoriteButtonComponent} from '../shared/button/favorite-button.component'
+import { HomeComponent } from './home.component'; 
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    FavoriteButtonComponent
+  imports: [ 
+    BrowserModule ,
+    SharedModule,
+    HomeRoutingModule 
   ],
-  imports: [
-    BrowserModule,
-    HomeRoutingModule,
-  ],
+  declarations: [ 
+    HomeComponent
+  ],  
 })
-export class AppModule { }
+export class HomeModule { }
