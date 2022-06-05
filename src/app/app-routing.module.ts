@@ -1,3 +1,4 @@
+import { QuestionComponent } from './views/question/question.component';
 import { HomeComponent } from './views/homepage/home.component';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
@@ -8,6 +9,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'lession', component: LessionComponent },
+  { path: 'q&a', component: QuestionComponent },
 ];
 
 @NgModule({

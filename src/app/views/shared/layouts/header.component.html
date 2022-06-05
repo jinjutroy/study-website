@@ -22,14 +22,14 @@
           <a  id="news" class="nav-link" [ngClass]="{'active': active === 'news'}" routerLink="news">Tin tức</a>
         </li>
         <li (click)='handlerClickNavbar($event)' class="nav-item dropdown">
-          <a class="nav-link  dropdown-toggle" href="#" id="dropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Xem thêm
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" href="#">Về chúng tôi</a>
             <a class="dropdown-item" href="#">Tìm kiếm</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Hỏi đáp</a>
+            <a class="dropdown-item" routerLink="q&a">Hỏi đáp</a>
           </div>
         </li> 
       </ul>

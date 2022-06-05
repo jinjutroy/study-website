@@ -10,8 +10,8 @@ import {
 } from './views/shared/layouts'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeRoutingModule } from './views/homepage/home-routing.module';
-import { LessionComponent } from './views/lession/lession.component'; 
+import { HomeRoutingModule } from './views/homepage/home-routing.module'; 
+import { QuestionComponent } from './views/question/question.component'; 
 
 @NgModule({ 
   declarations: [AppComponent, FooterComponent, HeaderComponent],
