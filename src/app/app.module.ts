@@ -20,7 +20,6 @@ import {PageloginModule} from "./views/pagelogin/pagelogin.module";
   imports: [
     HomeModule,
     BrowserModule,
-    AppRoutingModule,
     HomeRoutingModule,
     SharedModule,
     LessionModule,
