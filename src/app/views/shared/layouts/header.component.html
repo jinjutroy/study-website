@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
       <ul class="nav nav-tabs flex-grow-1 justify-content-center mx-5">
         <li (click)='handlerClickNavbar($event)'  class="nav-item ">
-          <a class="nav-link active" id="home"[ngClass]="{'active': active === 'home'}"  routerLink="home">Trang chủ</a>
+          <a class="nav-link active" id="home"[ngClass]="{'active': active === 'home' || active === ''}"  routerLink="home">Trang chủ</a>
         </li>
         <li (click)='handlerClickNavbar($event)' class="nav-item">
           <a class="nav-link" id="lession"  [ngClass]="{'active': active === 'lession'}" routerLink="lession">Bài giảng</a>
@@ -22,14 +22,14 @@
           <a  id="news" class="nav-link" [ngClass]="{'active': active === 'news'}" routerLink="news">Tin tức</a>
         </li>
         <li (click)='handlerClickNavbar($event)' class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Xem thêm
+          <a class="nav-link dropdown-toggle"  href="#" id="dropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Xem thêm
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" href="#">Về chúng tôi</a>
             <a class="dropdown-item" href="#">Tìm kiếm</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink="q&a">Hỏi đáp</a>
+            <a id="q&a" class="dropdown-item" routerLink="q&a">Hỏi đáp</a>
           </div>
 
         </li>
@@ -41,8 +41,7 @@
           <a (click)="logout()" id="logout" class="nav-link" *ngIf="username!=''"  >Đăng xuất</a>
         </li>
       </ul>
-      <app-favorite-button [ngClass]="'favourite'" *ngIf="username==''" routerLink="/login"> Đăng nhập</app-favorite-button>
-
+      <app-favorite-button [favorite]="favourite"> Đăng nhập</app-favorite-button>  
     </div>
   </nav>
 </header>

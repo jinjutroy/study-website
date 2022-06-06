@@ -47,10 +47,10 @@
                         <div class="lession__item">
                             <img src={{lessionImage}} alt="">
                             <div class="lession__item-content" >
-                                <h4 class="lession__item-title">{{lession.name}}</h4>
-                                <div class="lession__item-type"><a href="#">{{lession.subject}}</a>&nbsp;|&nbsp;<a  href="#">{{lession.block}}</a></div>
-                                <div class="lession__item-teacher">Giáo viên: {{lession.teacher}}</div>
-                                <div class="lession__item-desc">{{lession.desc}}</div>
+                                <h4 class="lession__item-title">{{lession.ten}}</h4>
+                                <div class="lession__item-type"><a href="#">{{lession.chuongHoc.monHoc.ten}}</a>&nbsp;|&nbsp;<a  href="#">{{lession.chuongHoc.monHoc.khoi.ten}}</a></div>
+                                <div class="lession__item-teacher">Giáo viên: {{lession.id}}</div>
+                                <div class="lession__item-desc"> Mô tả: {{lession.mota}}</div>
                             </div>
                         </div>
                     </div>
