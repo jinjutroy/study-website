@@ -1,6 +1,6 @@
 export interface ChiTietThoiKhoaBieu{
   id:number,
-  thu:String,
+  thu:string,
   thuTu:string
   monHoc:any;
 }

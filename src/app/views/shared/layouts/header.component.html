@@ -6,7 +6,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  
+
     <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
       <ul class="nav nav-tabs flex-grow-1 justify-content-center mx-5">
         <li (click)='handlerClickNavbar($event)'  class="nav-item ">
@@ -23,7 +23,7 @@
         </li>
         <li (click)='handlerClickNavbar($event)' class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Xem thêm
+    Xem thêm
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" href="#">Về chúng tôi</a>
@@ -31,9 +31,18 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" routerLink="q&a">Hỏi đáp</a>
           </div>
-        </li> 
+
+        </li>
+<!--        <li  class="nav-item dropdown" *ngIf="username!=''"><a class="nav-link dropdown-toggle">{{username}}</a></li>-->
+        <li (click)='handlerClickNavbar($event)' class="nav-item">
+          <a  id="username" class="nav-link"  >{{username}}</a>
+        </li>
+        <li (click)='handlerClickNavbar($event)' class="nav-item">
+          <a (click)="logout()" id="logout" class="nav-link" *ngIf="username!=''"  >Đăng xuất</a>
+        </li>
       </ul>
-      <app-favorite-button [ngClass]="'favourite'"> Đăng nhập</app-favorite-button>  
+      <app-favorite-button [ngClass]="'favourite'" *ngIf="username==''" routerLink="/login"> Đăng nhập</app-favorite-button>
+
     </div>
   </nav>
 </header>
