@@ -10,8 +10,8 @@ import {AuthService} from "../../../core/services/pagelogin/auth.service";
 
 })
 export class HeaderComponent implements OnInit {
+  favourite = true;
   img: string = 'assets/images/public/logo.png';
-
   public href: string = "";
   public active = "";
   username: string = "";

@@ -1,5 +1,5 @@
 .question-container{
-    margin-top: 106px;
+    margin-top: var(--heightHeader);
     padding: 40px 0;
     background: #E5FCFF;
     .question-wrapper{  
@@ -26,12 +26,14 @@
         display: flex;
         justify-content: center;
         align-items: stretch;
+        select,
         textarea,
         input{
             width: 80%;
             outline: none;
             border: 1px solid rgba(48, 48, 48, 0.5);
             line-height: 32px;
+            padding-left: 10px;
         };
     };
     .question-button{
@@ -45,6 +47,9 @@
             border-radius: 45px;
             background: #46BEB7;
             color: #fff;
+        };
+        button:hover{
+            opacity: 0.7;
         }
     }
     
@@ -54,4 +59,8 @@ label {
     text-align: right;
     padding-right: 20px;
   }
+}
+.btn-search-active{
+    background: #13948d !important;
+    color: #000 !important;
 }
