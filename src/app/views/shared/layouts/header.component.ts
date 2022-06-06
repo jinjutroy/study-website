@@ -21,12 +21,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.href = this.Location.path();
-    this.active = this.href.slice(1);
-    console.log(this.href);
+    this.active = this.href.slice(1); 
 
     // @ts-ignore
-    this.username = this.auth.getUser();
-    console.log(this.username)
+    this.username = this.auth.getUser(); 
   }
 
   handlerClickNavbar = (e: any) => {
