@@ -15,6 +15,10 @@ import { HomeComponent } from './views/homepage/home.component';
 import { QuestionComponent } from './views/question/question.component';
 import { LessionComponent } from './views/lession/lession.component';
 import { NotificationComponent } from './views/shared/notification/notification.component';
+import {PageloginModule} from "./views/pagelogin/pagelogin.module";
+import {PageloginRoutingModule} from "./views/pagelogin/pagelogin-routing.module";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -27,19 +31,20 @@ import { NotificationComponent } from './views/shared/notification/notification.
     LessionComponent,
     NotificationComponent],
   imports: [
-    HomeModule,
+    // HomeModule,
     BrowserModule,
     HomeRoutingModule,
     SharedModule,
-    LessionModule,
+    // LessionModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     PageloginRoutingModule,
     PageloginModule,
-    AppRoutingModule,
+    AppRoutingModule
+
   ],
-  providers: [],
+  providers: [HeaderComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

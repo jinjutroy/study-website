@@ -14,17 +14,24 @@ export class HeaderComponent implements OnInit {
   img: string = 'assets/images/public/logo.png';
   public href: string = "";
   public active = "";
-  username: string = "";
+  username: string | null ='a';
+  isAdmin: boolean = false;
+  isTeacher: boolean = false;
+  isUser: boolean = false;
+  isAuth: boolean = false;
 
   constructor(private Location: Location, private auth: AuthService, private router: Router) {
   }
 
   ngOnInit() {
     this.href = this.Location.path();
-    this.active = this.href.slice(1); 
+    this.active = this.href.slice(1);
+    this.username = this.auth.getUser();
+    this.isAdmin=this.auth.isAdmin();
+    this.isTeacher=this.auth.isTeacher();
+    this.isUser=this.auth.isUser();
+    this.isAuth=this.auth.isAuthenticated();
 
-    // @ts-ignore
-    this.username = this.auth.getUser(); 
   }
 
   handlerClickNavbar = (e: any) => {
@@ -43,8 +50,10 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     localStorage.clear()
-    this.router.navigateByUrl("/login");
-    this.username='';
+    this.router.navigateByUrl("/login") .then(() => {
+      window.location.reload();
+    });
+    this.username = '';
   }
 
 }

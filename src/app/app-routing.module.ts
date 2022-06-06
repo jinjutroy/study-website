@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'lession', component: LessionComponent },
   { path: 'schedule', component: ScheduleComponent },
   { path: 'q&a', component: QuestionComponent },
-  {path: "**", component: PagenotfoundComponent}
+  // {path: "**", component: PagenotfoundComponent}
 ];
 
 @NgModule({
