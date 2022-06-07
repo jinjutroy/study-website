@@ -1,18 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FavoriteButtonComponent } from './button/favorite-button.component';
-import { NgModule } from '@angular/core'; 
-  
+import { NgModule } from '@angular/core';
+import {HeaderComponent} from "./layouts";
+
 
 @NgModule({
-  imports: [ 
+  imports: [
     BrowserModule,
-  ], 
-  declarations: [  
-    FavoriteButtonComponent,
+  ],
+  declarations: [
+    FavoriteButtonComponent
   ],
   exports:[
     BrowserModule,
-    FavoriteButtonComponent, 
+    FavoriteButtonComponent,
   ]
 })
 export class SharedModule { }

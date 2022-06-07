@@ -19,6 +19,8 @@ import {PageloginModule} from "./views/pagelogin/pagelogin.module";
 import {PageloginRoutingModule} from "./views/pagelogin/pagelogin-routing.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {PagemarkRoutingModule} from "./views/pagemark/pagemark-routing.module";
+import {PagemarkModule} from "./views/pagemark/pagemark.module";
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import {HttpClientModule} from "@angular/common/http";
     ReactiveFormsModule,
     PageloginRoutingModule,
     PageloginModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PagemarkRoutingModule,
+    PagemarkModule
 
   ],
   providers: [HeaderComponent],
