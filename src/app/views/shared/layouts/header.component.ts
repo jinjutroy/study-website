@@ -10,11 +10,15 @@ import {AuthService} from "../../../core/services/pagelogin/auth.service";
 
 })
 export class HeaderComponent implements OnInit {
+  favourite = true;
   img: string = 'assets/images/public/logo.png';
-
   public href: string = "";
   public active = "";
-  username: string = "";
+  username: string | null ='a';
+  isAdmin: boolean = false;
+  isTeacher: boolean = false;
+  isUser: boolean = false;
+  isAuth: boolean = false;
 
   constructor(private Location: Location, private auth: AuthService, private router: Router) {
   }
@@ -22,11 +26,12 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.href = this.Location.path();
     this.active = this.href.slice(1);
-    console.log(this.href);
-
-    // @ts-ignore
     this.username = this.auth.getUser();
-    console.log(this.username)
+    this.isAdmin=this.auth.isAdmin();
+    this.isTeacher=this.auth.isTeacher();
+    this.isUser=this.auth.isUser();
+    this.isAuth=this.auth.isAuthenticated();
+
   }
 
   handlerClickNavbar = (e: any) => {
@@ -45,8 +50,10 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     localStorage.clear()
-    this.router.navigateByUrl("/login");
-    this.username='';
+    this.router.navigateByUrl("/login") .then(() => {
+      window.location.reload();
+    });
+    this.username = '';
   }
 
 }

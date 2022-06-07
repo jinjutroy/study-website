@@ -1,3 +1,5 @@
+import { BaiGiang } from './../../core/model/BaiGiang';
+import { LessionService } from '../../services/lession/lession.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,99 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lession.component.scss']
 })
 export class LessionComponent implements OnInit {
+   
+  lessionImage: string = "assets/images/lession.png"; 
 
-  lessionImage: string = "assets/images/lession.png";
-  allListLession = [
-    {
-      name: "Tuần 2: Hình tròng",
-      subject: "Toáng",
-      block: "Khốy 1",
-      teacher: "Nguyễn Thỵ Kim Hạnh ",
-      desc: "Bài giảng truyền hình"
-    },
-    {
-      name: "Tuần :3 Hình tam giác",
-      subject: "Toáng",
-      block: "Khốy 1",
-      teacher: "Nguyễn Thỵ Kim Hạnh ",
-      desc: "Bài giảng truyền hình"
-    },
-    {
-      name: "Tuần 2: Hình tròng",
-      subject: "Toáng",
-      block: "Khốy 1",
-      teacher: "Nguyễn Thỵ Kim Hạnh ",
-      desc: "Bài giảng truyền hình"
-    },
-    {
-      name: "Tuần :3 Hình tam giác",
-      subject: "Toáng",
-      block: "Khốy 1",
-      teacher: "Nguyễn Thỵ Kim Hạnh ",
-      desc: "Bài giảng truyền hình"
-    },
-    {
-      name: "Tuần 2: Hình tròng",
-      subject: "Toáng",
-      block: "Khốy 1",
-      teacher: "Nguyễn Thỵ Kim Hạnh ",
-      desc: "Bài giảng truyền hình"
-    },
-    {
-      name: "Tuần :3 Hình tam giác",
-      subject: "Toáng",
-      block: "Khốy 1",
-      teacher: "Nguyễn Thỵ Kim Hạnh ",
-      desc: "Bài giảng truyền hình"
-    },
-    {
-      name: "Tuần 2: Hình tròng",
-      subject: "Toáng",
-      block: "Khốy 1",
-      teacher: "Nguyễn Thỵ Kim Hạnh ",
-      desc: "Bài giảng truyền hình"
-    },
-    {
-      name: "Tuần :3 Hình tam giác",
-      subject: "Toáng",
-      block: "Khốy 1",
-      teacher: "Nguyễn Thỵ Kim Hạnh ",
-      desc: "Bài giảng truyền hình"
-    },
-    {
-      name: "Tuần 2: Hình tròng",
-      subject: "Toáng",
-      block: "Khốy 1",
-      teacher: "Nguyễn Thỵ Kim Hạnh ",
-      desc: "Bài giảng truyền hình"
-    },
-    {
-      name: "Tuần :3 Hình tam giác",
-      subject: "Toáng",
-      block: "Khốy 1",
-      teacher: "Nguyễn Thỵ Kim Hạnh ",
-      desc: "Bài giảng truyền hình"
-    },
-
-    {
-      name: "Tuần 2: Hình tròng",
-      subject: "Toáng",
-      block: "Khốy 1",
-      teacher: "Nguyễn Thỵ Kim Hạnh ",
-      desc: "Bài giảng truyền hình"
-    },
-    {
-      name: "Tuần :3 Hình tam giác",
-      subject: "Toáng",
-      block: "Khốy 1",
-      teacher: "Nguyễn Thỵ Kim Hạnh ",
-      desc: "Bài giảng truyền hình"
-    },
-  ]
-  listLession = this.allListLession.splice(0,12);
-  constructor() { }
-
-  ngOnInit(): void {
+  ls:any;
+  allListLession: BaiGiang[]= [
+  ]  
+  listLession: BaiGiang[] = [];
+  constructor(private _lessionService: LessionService) {   
+  } 
+ ngOnInit() { 
+  this._lessionService.getAll()
+  .subscribe(response => {
+    this.allListLession.push(...response) ;    
+    this.listLession = this.allListLession.splice(0,12);    
+     
+   });
   }
-
+  
 }

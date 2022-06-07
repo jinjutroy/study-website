@@ -1,5 +1,5 @@
 .lession-container{
-    margin-top: 106px;
+    margin-top: var(--heightHeader);
     padding-top: 20px;
     background: #EBECE5;
     .section-selection{
@@ -57,7 +57,7 @@
     cursor: pointer;
     background: #fff;
     border-radius: 4px;
-    max-height: 380px;
+    min-height: 430px;
     overflow: hidden;
     img{  
         width: 100%;

@@ -1,9 +1,8 @@
-export interface CauHoi{
-  id:number,
+export interface CauHoi{ 
   noiDung:string,
   hoTen:string,
   email:string,
   phone:string,
   tieuDe:string
-  chuDe:any;
+  idChuDe: number;
 }

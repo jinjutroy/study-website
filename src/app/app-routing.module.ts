@@ -5,14 +5,16 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LessionComponent } from './views/lession/lession.component';
 import {PagenotfoundComponent} from "./views/pagelogin/pagenotfound/pagenotfound.component";
 import {UserGuard} from "./core/guards/user.guard";
+import { ScheduleComponent } from './views/schedule/schedule.component';
 
 const routes: Routes = [
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'lession', component: LessionComponent },
+  { path: 'schedule', component: ScheduleComponent },
   { path: 'q&a', component: QuestionComponent },
-  {path: "**", component: PagenotfoundComponent}
+  // {path: "**", component: PagenotfoundComponent}
 ];
 
 @NgModule({

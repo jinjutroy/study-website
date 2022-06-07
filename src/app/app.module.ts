@@ -1,5 +1,4 @@
-import { LessionModule } from './views/lession/lession.module';
-import { HomeModule } from './views/homepage/home.module';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from './views/shared/shared.module';
 
@@ -11,23 +10,41 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeRoutingModule } from './views/homepage/home-routing.module';
+import { ScheduleComponent } from './views/schedule/schedule.component';
+import { HomeComponent } from './views/homepage/home.component';
 import { QuestionComponent } from './views/question/question.component';
-import {PageloginRoutingModule} from "./views/pagelogin/pagelogin-routing.module";
+import { LessionComponent } from './views/lession/lession.component';
+import { NotificationComponent } from './views/shared/notification/notification.component';
 import {PageloginModule} from "./views/pagelogin/pagelogin.module";
+import {PageloginRoutingModule} from "./views/pagelogin/pagelogin-routing.module";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent, HeaderComponent],
+  declarations: [
+    AppComponent,
+    FooterComponent,
+    HeaderComponent,
+    ScheduleComponent,
+    HomeComponent,
+    QuestionComponent,
+    LessionComponent,
+    NotificationComponent],
   imports: [
-    HomeModule,
+    // HomeModule,
     BrowserModule,
-    AppRoutingModule,
     HomeRoutingModule,
     SharedModule,
-    LessionModule,
+    // LessionModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     PageloginRoutingModule,
-    PageloginModule
+    PageloginModule,
+    AppRoutingModule
+
   ],
-  providers: [],
+  providers: [HeaderComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

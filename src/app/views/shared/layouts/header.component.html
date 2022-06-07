@@ -10,38 +10,86 @@
     <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
       <ul class="nav nav-tabs flex-grow-1 justify-content-center mx-5">
         <li (click)='handlerClickNavbar($event)'  class="nav-item ">
-          <a class="nav-link active" id="home"[ngClass]="{'active': active === 'home'}"  routerLink="home">Trang chủ</a>
+          <a class="nav-link active" id="home"[ngClass]="{'active': active === 'home' || active === ''}"  routerLink="home">Trang chủ</a>
         </li>
         <li (click)='handlerClickNavbar($event)' class="nav-item">
           <a class="nav-link" id="lession"  [ngClass]="{'active': active === 'lession'}" routerLink="lession">Bài giảng</a>
         </li>
-        <li  (click)='handlerClickNavbar($event)' class="nav-item">
+        <li  (click)='handlerClickNavbar($event)' class="nav-item" *ngIf="!isAdmin && !isTeacher">
           <a id="schedule" class="nav-link" [ngClass]="{'active': active === 'schedule'}" routerLink="schedule">Thời khóa biểu</a>
         </li>
-        <li (click)='handlerClickNavbar($event)' class="nav-item">
+        <li (click)='handlerClickNavbar($event)' class="nav-item" *ngIf="!isAdmin && !isTeacher">
           <a  id="news" class="nav-link" [ngClass]="{'active': active === 'news'}" routerLink="news">Tin tức</a>
         </li>
+        <li (click)='handlerClickNavbar($event)' class="nav-item" *ngIf="isTeacher">
+          <a   class="nav-link"  routerLink="seenmark">Đăng bài giảng</a>
+        </li>
+        <li (click)='handlerClickNavbar($event)' class="nav-item" *ngIf="isTeacher">
+          <a   class="nav-link"  routerLink="seenmark">Xem thời khoá biểu lớp đang dạy</a>
+        </li>
+        <li (click)='handlerClickNavbar($event)' class="nav-item" *ngIf="isTeacher">
+          <a   class="nav-link"  routerLink="seenmark">Cập nhật điểm cho học sinh</a>
+        </li>
         <li (click)='handlerClickNavbar($event)' class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Xem thêm
+          <a class="nav-link dropdown-toggle"  href="#" id="dropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Xem thêm
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" href="#">Về chúng tôi</a>
             <a class="dropdown-item" href="#">Tìm kiếm</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink="q&a">Hỏi đáp</a>
+            <a id="q&a" class="dropdown-item" routerLink="q&a">Hỏi đáp</a>
           </div>
 
         </li>
 <!--        <li  class="nav-item dropdown" *ngIf="username!=''"><a class="nav-link dropdown-toggle">{{username}}</a></li>-->
-        <li (click)='handlerClickNavbar($event)' class="nav-item">
-          <a  id="username" class="nav-link"  >{{username}}</a>
-        </li>
-        <li (click)='handlerClickNavbar($event)' class="nav-item">
-          <a (click)="logout()" id="logout" class="nav-link" *ngIf="username!=''"  >Đăng xuất</a>
-        </li>
+<!--        <li (click)='handlerClickNavbar($event)' class="nav-item">-->
+<!--          <a  id="username" class="nav-link" *ngIf="username!='a'" ></a>-->
+<!--        </li>-->
+<!--        <li (click)='handlerClickNavbar($event)' class="nav-item">-->
+<!--          <a (click)="logout()" id="logout" class="nav-link"   >Đăng xuất</a>-->
+<!--        </li>-->
+        <div class="dropdown mr-2" *ngIf="!isAuth" >
+          <button class=" mt-2 dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Tìm kiếm
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+            <button class="dropdown-item" type="button">Học sinh</button>
+            <button class="dropdown-item" type="button">Giáo viên</button>
+<!--            <button class="dropdown-item" (click)="logout()" type="button">Đăng xuất</button>-->
+          </div>
+        </div>
+        <div class="dropdown mr-3 ml-3" *ngIf="isAdmin">
+          <button class=" mt-2 dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Quản lí
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu4">
+            <button class="dropdown-item" type="button">Quản lí học sinh</button>
+            <button class="dropdown-item" type="button">Quản lí giáo viên</button>
+            <button class="dropdown-item" type="button">Quản lí lớp</button>
+            <button class="dropdown-item" type="button">Quản lí tin tức</button>
+            <button class="dropdown-item" type="button">Quản lí bài giảng</button>
+            <button class="dropdown-item" type="button">Quản lí điểm</button>
+            <!--            <button class="dropdown-item" (click)="logout()" type="button">Đăng xuất</button>-->
+          </div>
+        </div>
+          <div class="dropdown" *ngIf="isAdmin || isTeacher || isUser" >
+            <button class=" mt-2 dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Xin chào: {{username}}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <button class="dropdown-item" type="button" *ngIf="isUser">Xem điểm</button>
+              <button class="dropdown-item" type="button">Thông tin cá nhân</button>
+              <button class="dropdown-item" (click)="logout()" type="button">Đăng xuất</button>
+            </div>
+          </div>
+
+
+
       </ul>
-      <app-favorite-button [ngClass]="'favourite'" *ngIf="username==''" routerLink="/login"> Đăng nhập</app-favorite-button>
+
+        <app-favorite-button [favorite]="favourite" *ngIf="username==null" >Đăng nhập</app-favorite-button>
+<!--        <app-favorite-button [favorite]="favourite" *ngIf="username!='a'" >Đăng xuất</app-favorite-button>-->
 
     </div>
   </nav>
