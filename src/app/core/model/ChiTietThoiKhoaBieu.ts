@@ -2,5 +2,8 @@ export interface ChiTietThoiKhoaBieu{
   id:number,
   thu:string,
   thuTu:string
-  monHoc:any;
+  monHoc:{
+    id:number,
+    ten: string
+  };
 }

@@ -7,7 +7,7 @@ const httpOptions ={
   headers:new HttpHeaders({'Content-Type':'Application/json'})
 }
 const apiUrl = 'https://website-truong-tieu-hoc.herokuapp.com/api/baiGiang';
-
+const apiLessionByIdUrl = "https://website-truong-tieu-hoc.herokuapp.com/api/baiGiang/";
 @Injectable({
   providedIn: 'root'
 })
@@ -17,5 +17,8 @@ export class LessionService {
 
   getAll():Observable<BaiGiang[]>{
     return this.httpClient.get<BaiGiang[]>(apiUrl).pipe();
+  }
+  getLessionById(id: number): Observable<BaiGiang>{
+    return this.httpClient.get<BaiGiang>(apiLessionByIdUrl+id).pipe();
   }
 }

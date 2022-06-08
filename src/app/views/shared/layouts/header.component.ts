@@ -38,14 +38,6 @@ export class HeaderComponent implements OnInit {
     const listItem = document.querySelectorAll(".nav-link");
     listItem.forEach(e => e.classList.remove("active"));
     this.active = e.target.id;
-
-    if (e.target.classList.contains("dropdown-toggle")) {
-      const e = document.querySelector(".dropdown-menu");
-      e?.classList.add("show");
-    } else {
-      const e = document.querySelector(".dropdown-menu");
-      e?.classList.remove("show");
-    }
   }
 
   logout() {
@@ -55,5 +47,7 @@ export class HeaderComponent implements OnInit {
     });
     this.username = '';
   }
-
+  login(){
+    window.location.reload(); 
+  }
 }

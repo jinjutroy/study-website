@@ -29,18 +29,9 @@
         </li>
         <li (click)='handlerClickNavbar($event)' class="nav-item" *ngIf="isTeacher">
           <a   class="nav-link"  routerLink="seenmark">Cập nhật điểm cho học sinh</a>
-        </li>
-        <li (click)='handlerClickNavbar($event)' class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle"  href="#" id="dropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Xem thêm
-          </a>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#">Về chúng tôi</a>
-            <a class="dropdown-item" href="#">Tìm kiếm</a>
-            <div class="dropdown-divider"></div>
-            <a id="q&a" class="dropdown-item" routerLink="q&a">Hỏi đáp</a>
-          </div>
-
+        </li>  
+        <li (click)='handlerClickNavbar($event)' class="nav-item" *ngIf="!isAdmin && !isTeacher">
+          <a  id="q&a" class="nav-link" [ngClass]="{'active': active === 'q&a'}" routerLink="q&a">Hỏi đáp</a>
         </li>
 <!--        <li  class="nav-item dropdown" *ngIf="username!=''"><a class="nav-link dropdown-toggle">{{username}}</a></li>-->
 <!--        <li (click)='handlerClickNavbar($event)' class="nav-item">-->
@@ -49,13 +40,13 @@
 <!--        <li (click)='handlerClickNavbar($event)' class="nav-item">-->
 <!--          <a (click)="logout()" id="logout" class="nav-link"   >Đăng xuất</a>-->
 <!--        </li>-->
-        <div class="dropdown mr-2" *ngIf="!isAuth" >
+        <div class="header-dr-search dropdown mr-2" *ngIf="!isAuth" >
           <button class=" mt-2 dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Tìm kiếm
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
-            <button class="dropdown-item" type="button">Học sinh</button>
-            <button class="dropdown-item" type="button">Giáo viên</button>
+            <button class="dropdown-item" type="button"  routerLink="search/student">Học sinh</button>
+            <button class="dropdown-item" type="button"routerLink="search/teacher">Giáo viên</button>
 <!--            <button class="dropdown-item" (click)="logout()" type="button">Đăng xuất</button>-->
           </div>
         </div>
@@ -82,13 +73,11 @@
               <button class="dropdown-item" type="button">Thông tin cá nhân</button>
               <button class="dropdown-item" (click)="logout()" type="button">Đăng xuất</button>
             </div>
-          </div>
-
-
+          </div> 
 
       </ul>
 
-        <app-favorite-button [favorite]="favourite" *ngIf="username==null" >Đăng nhập</app-favorite-button>
+        <app-favorite-button [favorite]="favourite" routerLink="login" *ngIf="username==null">{{username || "Đăng nhập"}}</app-favorite-button>
 <!--        <app-favorite-button [favorite]="favourite" *ngIf="username!='a'" >Đăng xuất</app-favorite-button>-->
 
     </div>

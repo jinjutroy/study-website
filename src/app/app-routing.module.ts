@@ -6,13 +6,22 @@ import { LessionComponent } from './views/lession/lession.component';
 import {PagenotfoundComponent} from "./views/pagelogin/pagenotfound/pagenotfound.component";
 import {UserGuard} from "./core/guards/user.guard";
 import { ScheduleComponent } from './views/schedule/schedule.component';
+import { TeacherComponent } from './views/teacher/teacher.component';
+import { StudentComponent } from './views/student/student.component';
 
 const routes: Routes = [
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'lession', component: LessionComponent },
+  { path: 'lession', component: LessionComponent , children: [
+    {
+      path: 'lession/:id',  // child route pa 
+      component: QuestionComponent,  // child route component that the router renders
+    },
+  ]},
   { path: 'schedule', component: ScheduleComponent },
+  { path: 'search/teacher', component: TeacherComponent },
+  { path: 'search/student', component: StudentComponent },
   { path: 'q&a', component: QuestionComponent },
   // {path: "**", component: PagenotfoundComponent}
 ];

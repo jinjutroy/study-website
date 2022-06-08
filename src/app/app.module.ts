@@ -17,10 +17,12 @@ import { LessionComponent } from './views/lession/lession.component';
 import { NotificationComponent } from './views/shared/notification/notification.component';
 import {PageloginModule} from "./views/pagelogin/pagelogin.module";
 import {PageloginRoutingModule} from "./views/pagelogin/pagelogin-routing.module";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms"; 
+import {HttpClientModule} from "@angular/common/http"; 
+import { StudentComponent } from './views/student/student.component';
+import { TeacherComponent } from './views/teacher/teacher.component'; 
 import {PagemarkRoutingModule} from "./views/pagemark/pagemark-routing.module";
-import {PagemarkModule} from "./views/pagemark/pagemark.module";
+import {PagemarkModule} from "./views/pagemark/pagemark.module"; 
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import {PagemarkModule} from "./views/pagemark/pagemark.module";
     HomeComponent,
     QuestionComponent,
     LessionComponent,
-    NotificationComponent],
+    NotificationComponent,
+    StudentComponent,
+    TeacherComponent],
   imports: [
     // HomeModule,
     BrowserModule,
