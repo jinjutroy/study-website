@@ -33,12 +33,11 @@ export class LoginComponent implements OnInit {
         this.auth.setToken(data.accessToken);
         this.auth.setRole(data.authorities);
         if(this.auth.isAdmin()){
-          this.router.navigate(["/lession"], {replaceUrl: true})
+          this.router.navigate(["/lession"], {replaceUrl: true}); 
         }else {
-          this.router.navigate(["/home"], {replaceUrl: true})
-        }
-
-      }
+          this.router.navigate(["/home"], {replaceUrl: true}); 
+        } 
+      } 
     ,error => this.error="Mật khẩu hoặc tên đăng nhập bị sai" );
   }
 }

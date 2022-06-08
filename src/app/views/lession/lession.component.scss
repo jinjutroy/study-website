@@ -57,7 +57,7 @@
     cursor: pointer;
     background: #fff;
     border-radius: 4px;
-    min-height: 430px;
+    min-height: 380px;
     overflow: hidden;
     img{  
         width: 100%;
@@ -79,8 +79,16 @@
         display: flex;
         color: rgba(49, 49, 252, 0.726);
         font-weight: 400;
-        a{
-            text-decoration: none;
+        p{
+        color: rgba(49, 49, 252, 0.726);
+        margin-bottom: 0;
+        text-decoration: none;
+        width: fit-content;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        padding-inline: 4px;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
         }
     }
     .lession__item-teacher,

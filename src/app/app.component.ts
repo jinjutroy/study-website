@@ -1,3 +1,4 @@
+import { ScheduleService } from 'src/app/services/schedule/schedule.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'study-website';
+  constructor(private _scheduleService: ScheduleService) { }
+
+  ngOnInit(): void {
+    this._scheduleService.getAllBlock().subscribe(response => { 
+      localStorage.setItem('dataSource', JSON.stringify(response));
+    })
+  }
 }

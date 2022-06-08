@@ -18,7 +18,9 @@ import { NotificationComponent } from './views/shared/notification/notification.
 import {PageloginModule} from "./views/pagelogin/pagelogin.module";
 import {PageloginRoutingModule} from "./views/pagelogin/pagelogin-routing.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http"; 
+import { StudentComponent } from './views/student/student.component';
+import { TeacherComponent } from './views/teacher/teacher.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import {HttpClientModule} from "@angular/common/http";
     HomeComponent,
     QuestionComponent,
     LessionComponent,
-    NotificationComponent],
+    NotificationComponent,
+    StudentComponent,
+    TeacherComponent],
   imports: [
     // HomeModule,
     BrowserModule,
