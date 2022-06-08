@@ -17,10 +17,12 @@ import { LessionComponent } from './views/lession/lession.component';
 import { NotificationComponent } from './views/shared/notification/notification.component';
 import {PageloginModule} from "./views/pagelogin/pagelogin.module";
 import {PageloginRoutingModule} from "./views/pagelogin/pagelogin-routing.module";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms"; 
 import {HttpClientModule} from "@angular/common/http"; 
 import { StudentComponent } from './views/student/student.component';
-import { TeacherComponent } from './views/teacher/teacher.component';
+import { TeacherComponent } from './views/teacher/teacher.component'; 
+import {PagemarkRoutingModule} from "./views/pagemark/pagemark-routing.module";
+import {PagemarkModule} from "./views/pagemark/pagemark.module"; 
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { TeacherComponent } from './views/teacher/teacher.component';
     ReactiveFormsModule,
     PageloginRoutingModule,
     PageloginModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PagemarkRoutingModule,
+    PagemarkModule
 
   ],
   providers: [HeaderComponent],
