@@ -37,13 +37,7 @@ export class LoginComponent implements OnInit {
         }else {
           this.router.navigate(["/home"], {replaceUrl: true}); 
         } 
-      }  
-          this.router.navigate(["/home"], {replaceUrl: true}) .then(() => {
-            window.location.reload();
-          });
-
-
-      } 
+      }   
     ,error => this.error="Mật khẩu hoặc tên đăng nhập bị sai" );
   }
 }
