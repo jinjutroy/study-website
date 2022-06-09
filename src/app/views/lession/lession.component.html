@@ -5,19 +5,19 @@
                 <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 col-xxl-3">
                     <select class="form-select lession-select"  (change)="handlerOnChangeLession($event)">
                         <option selected>Chọn khối</option>
-                        <option value={{e.id}} *ngFor="let e of listBlock">{{e.ten}}</option> 
+                        <option value={{e.id}} *ngFor="let e of listBlock">{{e.ten}}</option>
                     </select>
                 </div>
                 <div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 col-xxl-3">
                     <select class="form-select lession-select"(change)="handlerOnChangeSubject($event)" >
                         <option selected>Chọn môn học</option>
-                        <option value={{e.id}} *ngFor="let e of listSubject">{{e.ten}}</option> 
+                        <option value={{e.id}} *ngFor="let e of listSubject">{{e.ten}}</option>
                     </select>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
                     <select class="form-select lession-select" >
                         <option selected>Chọn chương học</option>
-                        <option value={{e.id}} *ngFor="let e of listChapter">{{e.ten}}</option> 
+                        <option value={{e.id}} *ngFor="let e of listChapter">{{e.ten}}</option>
                     </select>
                 </div>
             </div>
@@ -39,7 +39,10 @@
                 <div class="row">
                     <div  *ngFor="let lession of listLession" class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 col-xxl-3">
                         <div class="lession__item">
-                            <img src={{lessionImage}} alt="">
+<!--                            <img src={{lessionImage}} alt="">-->
+                          <video controls>
+                            <source src="{{lession.fileVideo}}">
+                          </video>
                             <div class="lession__item-content" >
                                 <h4 class="lession__item-title">{{lession.ten}}</h4>
                                 <div class="lession__item-type"><p href="#">{{lession.chuongHoc.monHoc.ten}}</p>&nbsp;|&nbsp;<p  href="#">{{lession.chuongHoc.ten}}</p></div>
