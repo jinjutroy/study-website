@@ -46,8 +46,5 @@ export class HeaderComponent implements OnInit {
       window.location.reload();
     });
     this.username = '';
-  }
-  login(){
-    window.location.reload(); 
-  }
+  } 
 }

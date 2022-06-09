@@ -20,7 +20,7 @@
                 chức cho BCH Liên Chi đội đi đến Địa chỉ đỏ tại địa phương.
               </div>
               <div class="mt-4">
-                <app-favorite-button [ngClass]="'favourite'"> Xem thêm</app-favorite-button>
+                <app-favorite-button [favorite]="favourite"> Xem thêm</app-favorite-button>
               </div>
             </div>
             <img src={{image[0]}} class="carousel__image col-12	col-sm-12	col-md-12 col-lg-6	col-xl-6	col-xxl-6"
@@ -36,7 +36,7 @@
                 chức cho BCH Liên Chi đội đi đến Địa chỉ đỏ tại địa phương.
               </div>
               <div class="mt-4">
-                <app-favorite-button [ngClass]="'favourite'"> Xem thêm</app-favorite-button>
+                <app-favorite-button [favorite]="favourite"> Xem thêm</app-favorite-button>
               </div>
             </div>
             <img src={{image[0]}} class="carousel__image col-12	col-sm-12	col-md-12 col-lg-6	col-xl-6	col-xxl-6"
@@ -52,7 +52,7 @@
                 chức cho BCH Liên Chi đội đi đến Địa chỉ đỏ tại địa phương.
               </div>
               <div class="mt-4">
-                <app-favorite-button [ngClass]="'favourite'"> Xem thêm</app-favorite-button>
+                <app-favorite-button routerLink="news" [favorite]="favourite"> Xem thêm</app-favorite-button>
               </div>
             </div>
             <img src={{image[0]}} class="carousel__image col-12	col-sm-12	col-md-12 col-lg-6	col-xl-6	col-xxl-6"
@@ -101,70 +101,20 @@
         Tin tức hoạt động
       </div>
       <div class="row">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-4 col-xxl-4">
-          <div class="activity-container">
-            <div class="activity-image">
-              <img src={{activityImageUrl}} alt="">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-4 col-xxl-4" *ngFor="let e of listNews">
+          <div id={{e.id}} class="activity-container">
+            <div  class="activity-image">
+              <img src={{e.images[0].linkimage}} alt="">
             </div>
             <div class="activity-text">
-              <h4 class="mt-2">Tiêu điểm trong tuần </h4>
-              <div class="activity-text__desc">Cùng điểm lại những tin tức sự kiện xảy ra trong tuần đầu tháng 11/20221</div>
+              <h4 class="mt-2">{{e.tieuDe}} </h4>
+              <div class="activity-text__desc">{{e.noiDung}}</div>
             </div>
           </div>
-        </div>  <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-4 col-xxl-4">
-          <div class="activity-container">
-            <div class="activity-image">
-              <img src={{activityImageUrl}} alt="">
-            </div>
-            <div class="activity-text">
-              <h4 class="mt-2">Tiêu điểm trong tuần </h4>
-              <div class="activity-text__desc">Cùng điểm lại những tin tức sự kiện xảy ra trong tuần đầu tháng 11/20221</div>
-            </div>
-          </div>
-        </div>  <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-4 col-xxl-4">
-          <div class="activity-container">
-            <div class="activity-image">
-              <img src={{activityImageUrl}} alt="">
-            </div>
-            <div class="activity-text">
-              <h4 class="mt-2">Tiêu điểm trong tuần </h4>
-              <div class="activity-text__desc">Cùng điểm lại những tin tức sự kiện xảy ra trong tuần đầu tháng 11/20221</div>
-            </div>
-          </div>
-        </div>  <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-4 col-xxl-4">
-          <div class="activity-container">
-            <div class="activity-image">
-              <img src={{activityImageUrl}} alt="">
-            </div>
-            <div class="activity-text">
-              <h4 class="mt-2">Tiêu điểm trong tuần </h4>
-              <div class="activity-text__desc">Cùng điểm lại những tin tức sự kiện xảy ra trong tuần đầu tháng 11/20221</div>
-            </div>
-          </div>
-        </div>  <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-4 col-xxl-4">
-          <div class="activity-container">
-            <div class="activity-image">
-              <img src={{activityImageUrl}} alt="">
-            </div>
-            <div class="activity-text">
-              <h4 class="mt-2">Tiêu điểm trong tuần </h4>
-              <div class="activity-text__desc">Cùng điểm lại những tin tức sự kiện xảy ra trong tuần đầu tháng 11/20221</div>
-            </div>
-          </div>
-        </div>  <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-4 col-xxl-4">
-          <div class="activity-container">
-            <div class="activity-image">
-              <img src={{activityImageUrl}} alt="">
-            </div>
-            <div class="activity-text">
-              <h4 class="mt-2">Tiêu điểm trong tuần </h4>
-              <div class="activity-text__desc">Cùng điểm lại những tin tức sự kiện xảy ra trong tuần đầu tháng 11/20221</div>
-            </div>
-          </div>
-        </div>
+        </div>  
       </div>
       <div class="activity-button">
-        <app-favorite-button>
+        <app-favorite-button [favorite]="favourite">
             <div class="pe-3 ps-3"><a routerLink="news"> Xem thêm</a></div>
         </app-favorite-button>
       </div>

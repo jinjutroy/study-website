@@ -21,4 +21,8 @@ export class LessionService {
   getLessionById(id: number): Observable<BaiGiang>{
     return this.httpClient.get<BaiGiang>(apiLessionByIdUrl+id).pipe();
   }
+  getLessionByChapterAndSubject(idChapter: number, idSubject: number): Observable<BaiGiang[]>{
+    return this.httpClient.get<BaiGiang[]>(apiLessionByIdUrl+"search?"+"idmon="+idSubject+"&idchuong="+idChapter).pipe();
+
+  }
 }

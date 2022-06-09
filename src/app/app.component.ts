@@ -1,3 +1,4 @@
+import { NewsService } from './services/news/news.service';
 import { ScheduleService } from 'src/app/services/schedule/schedule.service';
 import { Component } from '@angular/core';
 
@@ -8,11 +9,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'study-website';
-  constructor(private _scheduleService: ScheduleService) { }
+  constructor(private _scheduleService: ScheduleService, private _newsService: NewsService) { }
 
   ngOnInit(): void {
     this._scheduleService.getAllBlock().subscribe(response => { 
-      localStorage.setItem('dataSource', JSON.stringify(response));
+      localStorage.setItem('dataBlock', JSON.stringify(response));
     })
+    this._newsService.getAllNews().subscribe(
+      response => { 
+        localStorage.setItem('dataNews', JSON.stringify(response));
+
+      }
+    )
   }
 }
