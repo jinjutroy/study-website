@@ -22,14 +22,11 @@ import {HttpClientModule} from "@angular/common/http";
 import { StudentComponent } from './views/student/student.component';
 import { TeacherComponent } from './views/teacher/teacher.component';
 import {PagemarkRoutingModule} from "./views/pagemark/pagemark-routing.module";
-import {PagemarkModule} from "./views/pagemark/pagemark.module";
-<<<<<<< HEAD
+import {PagemarkModule} from "./views/pagemark/pagemark.module"; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from "@angular/material/snack-bar"; 
-import { TimetableteacherComponent } from './views/timetableteacher/timetableteacher.component'; 
-=======
-import { NewsComponent } from './views/news/news.component'; 
->>>>>>> 2d99188 (update lesion search)
+import { TimetableteacherComponent } from './views/timetableteacher/timetableteacher.component';  
+import { NewsComponent } from './views/news/news.component';  
 
 @NgModule({
   declarations: [
@@ -42,12 +39,9 @@ import { NewsComponent } from './views/news/news.component';
     LessionComponent,
     NotificationComponent,
     StudentComponent,
-    TeacherComponent,
-<<<<<<< HEAD
-    TimetableteacherComponent],
-=======
-    NewsComponent],
->>>>>>> 2d99188 (update lesion search)
+    TeacherComponent, 
+    TimetableteacherComponent,
+    NewsComponent], 
   imports: [
     // HomeModule,
     BrowserModule,
