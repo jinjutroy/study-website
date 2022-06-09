@@ -26,6 +26,7 @@ import {PagemarkModule} from "./views/pagemark/pagemark.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { TimetableteacherComponent } from './views/timetableteacher/timetableteacher.component';
+import { NewsComponent } from './views/news/news.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { TimetableteacherComponent } from './views/timetableteacher/timetabletea
     NotificationComponent,
     StudentComponent,
     TeacherComponent,
-    TimetableteacherComponent],
+    TimetableteacherComponent,
+    NewsComponent],
   imports: [
     // HomeModule,
     BrowserModule,
@@ -55,8 +57,6 @@ import { TimetableteacherComponent } from './views/timetableteacher/timetabletea
     PagemarkRoutingModule,
     PagemarkModule,
     BrowserAnimationsModule,MatSnackBarModule
-
-
 
   ],
   providers: [HeaderComponent],
