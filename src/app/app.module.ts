@@ -24,7 +24,8 @@ import { TeacherComponent } from './views/teacher/teacher.component';
 import {PagemarkRoutingModule} from "./views/pagemark/pagemark-routing.module";
 import {PagemarkModule} from "./views/pagemark/pagemark.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatSnackBarModule} from "@angular/material/snack-bar"; 
+import { TimetableteacherComponent } from './views/timetableteacher/timetableteacher.component'; 
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     LessionComponent,
     NotificationComponent,
     StudentComponent,
-    TeacherComponent],
+    TeacherComponent,
+    TimetableteacherComponent],
   imports: [
     // HomeModule,
     BrowserModule,

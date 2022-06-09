@@ -8,6 +8,7 @@ import {UserGuard} from "./core/guards/user.guard";
 import { ScheduleComponent } from './views/schedule/schedule.component';
 import { TeacherComponent } from './views/teacher/teacher.component';
 import { StudentComponent } from './views/student/student.component';
+import {TimetableteacherComponent} from "./views/timetableteacher/timetableteacher.component";
 
 const routes: Routes = [
 
@@ -15,7 +16,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'lession', component: LessionComponent , children: [
     {
-      path: 'lession/:id',  // child route pa 
+      path: 'lession/:id',  // child route pa
       component: QuestionComponent,  // child route component that the router renders
     },
   ]},
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'search/teacher', component: TeacherComponent },
   { path: 'search/student', component: StudentComponent },
   { path: 'q&a', component: QuestionComponent },
+  { path: 'tabletime', component: TimetableteacherComponent },
   // {path: "**", component: PagenotfoundComponent}
 ];
 
