@@ -22,13 +22,13 @@
           <a  id="news" class="nav-link" [ngClass]="{'active': active === 'news'}" routerLink="news">Tin tức</a>
         </li>
         <li (click)='handlerClickNavbar($event)' class="nav-item" *ngIf="isTeacher">
-          <a   class="nav-link"  routerLink="seenmark">Đăng bài giảng</a>
+          <a   class="nav-link"  routerLink="/create-lession" [ngClass]="{'active': active === 'create-lession'}">Đăng bài giảng</a>
         </li>
         <li (click)='handlerClickNavbar($event)' class="nav-item" *ngIf="isTeacher">
-          <a   class="nav-link"  routerLink="seenmark">Xem thời khoá biểu lớp đang dạy</a>
+          <a   class="nav-link" [ngClass]="{'active': active === 'tabletime'}"  routerLink="tabletime">Xem thời khoá biểu lớp đang dạy</a>
         </li>
         <li (click)='handlerClickNavbar($event)' class="nav-item" *ngIf="isTeacher">
-          <a   class="nav-link"  routerLink="updatemark">Cập nhật điểm cho học sinh</a>
+          <a   class="nav-link" [ngClass]="{'active': active === 'updatemark'}" routerLink="updatemark">Cập nhật điểm cho học sinh</a>
         </li>
         <li (click)='handlerClickNavbar($event)' class="nav-item" *ngIf="!isAdmin && !isTeacher">
           <a  id="q&a" class="nav-link" [ngClass]="{'active': active === 'q&a'}" routerLink="q&a">Hỏi đáp</a>
