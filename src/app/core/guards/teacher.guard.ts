@@ -25,4 +25,5 @@ export class TeacherGuard implements CanActivate {
     }
     this.router.navigateByUrl("/access-denied");
     return false;
-  }}
+  }
+}
