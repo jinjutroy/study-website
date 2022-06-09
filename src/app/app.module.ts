@@ -23,9 +23,13 @@ import { StudentComponent } from './views/student/student.component';
 import { TeacherComponent } from './views/teacher/teacher.component';
 import {PagemarkRoutingModule} from "./views/pagemark/pagemark-routing.module";
 import {PagemarkModule} from "./views/pagemark/pagemark.module";
+<<<<<<< HEAD
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from "@angular/material/snack-bar"; 
 import { TimetableteacherComponent } from './views/timetableteacher/timetableteacher.component'; 
+=======
+import { NewsComponent } from './views/news/news.component'; 
+>>>>>>> 2d99188 (update lesion search)
 
 @NgModule({
   declarations: [
@@ -39,7 +43,11 @@ import { TimetableteacherComponent } from './views/timetableteacher/timetabletea
     NotificationComponent,
     StudentComponent,
     TeacherComponent,
+<<<<<<< HEAD
     TimetableteacherComponent],
+=======
+    NewsComponent],
+>>>>>>> 2d99188 (update lesion search)
   imports: [
     // HomeModule,
     BrowserModule,

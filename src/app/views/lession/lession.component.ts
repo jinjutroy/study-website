@@ -12,7 +12,7 @@ import { ChuongHoc } from 'src/app/core/model/ChuongHoc';
   templateUrl: './lession.component.html',
   styleUrls: ['./lession.component.scss']
 })
-export class LessionComponent implements OnInit {
+export class LessionComponent implements OnInit { 
   listBlock: Khoi[] = [];
   lessionImage: string = "assets/images/lession.png";  
   allListLession: BaiGiang[] = []
@@ -20,10 +20,12 @@ export class LessionComponent implements OnInit {
 
   listSubject: MonHoc[] = [];
   listChapter: ChuongHoc[] = [];
+  idSubject: number = 0;
+  idChapter: number = 0;
   constructor(private _lessionService: LessionService, private _subjectService: SubjectService, private _chapterService: ChapterService) {
   }
   ngOnInit() { 
-    const blockinStorage = JSON.parse(localStorage.getItem('dataSource') || "");
+    const blockinStorage = JSON.parse(localStorage.getItem('dataBlock') || "");
     this.listBlock.push(...blockinStorage);
     this._lessionService.getAll().subscribe(response => {
         this.allListLession.push(...response);
@@ -40,8 +42,19 @@ export class LessionComponent implements OnInit {
     });
   }
   handlerOnChangeSubject(e: any){
+    this.idSubject = e.target.value;
     this._chapterService.getAllChapterBySubject(e.target.value).subscribe(response => {   
       this.listChapter = [...response];
     });
+  }
+  handlerOnChangeChapter(e: any){
+    this.idChapter = e.target.value;
+    if(this.idSubject && this.idChapter){
+      this._lessionService.getLessionByChapterAndSubject(this.idChapter,this.idChapter).subscribe(response => {   
+        this.allListLession = response;  
+        console.log(response); 
+      });
+    } 
+    return;
   }
 }

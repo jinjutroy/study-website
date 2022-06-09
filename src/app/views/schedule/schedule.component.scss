@@ -1,8 +1,8 @@
 .schedule-container{
     margin-top: var(--heightHeader);
     background: #CBEFFE;
-    padding-bottom: 40px;
-    .schedule-selection{    
+    padding-bottom: 340px;
+    .schedule-selection{     
         padding: 40px 0;
         padding-left: 40px;
         display: flex;
@@ -26,5 +26,11 @@
     .schedule-table {
         background: #fff;
         margin-bottom: 0; 
+        padding-bottom: 120px;
+    }
+}
+@media (max-width: 992px){ 
+    .schedule-container{
+        padding-bottom: 80px;
     }
 }

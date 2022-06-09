@@ -22,7 +22,7 @@ export class ScheduleComponent implements OnInit {
   constructor(private _scheduleService: ScheduleService) { }
 
   ngOnInit(): void {
-    const blockinStorage = JSON.parse(localStorage.getItem('dataSource')|| ""); 
+    const blockinStorage = JSON.parse(localStorage.getItem('dataBlock')|| ""); 
     this.listBlock.push(...blockinStorage)
   }
   onChangeScheduleBlock(e: any) {
