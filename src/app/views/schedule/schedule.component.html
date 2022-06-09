@@ -4,13 +4,13 @@
             <div class="schedule-block">
                 <select class="form-select" aria-label="Default select example" (change)="onChangeScheduleBlock($event)">
                     <option selected>Chọn khối</option>
-                    <option value={{block.id}} *ngFor="let block of listBlock">{{block.ten || "Loading..."}}</option> 
+                    <option value={{block.id}} *ngFor="let block of listBlock">{{block.ten || "Loading..."}}</option>
                   </select>
             </div>
             <div class="schedule-class">
                 <select class="form-select" aria-label="Default select example" (change)="onChangeScheduleClass($event)">
                     <option selected>Chọp lớp</option>
-                    <option value={{class.id}} *ngFor="let class of listClass">{{class.ten|| "Loading..."}}</option> 
+                    <option value={{class.id}} *ngFor="let class of listClass">{{class.ten|| "Loading..."}}</option>
                   </select>
             </div>
             <div class="schedule-search">
@@ -32,23 +32,23 @@
                 <tbody>
                   <tr>
                     <th scope="row">Tiết 1</th>
-                    <td id={{i.monHoc.id}} *ngFor="let i of lesson1">{{i.monHoc.ten}}</td> 
+                    <td id="{{i.monHoc.id}}" *ngFor="let i of lesson1">{{i.monHoc.ten}}</td>
                   </tr>
                   <tr>
                     <th scope="row">Tiết 2</th>
-                    <td id={{i.monHoc.id}} *ngFor="let i of lesson2">{{i.monHoc.ten}}</td> 
+                    <td id="{{i.monHoc.id}}" *ngFor="let i of lesson2">{{i.monHoc.ten}}</td>
                   </tr>
                   <tr>
                     <th scope="row">Tiết 3</th>
-                    <td id={{i.monHoc.id}} *ngFor="let i of lesson3">{{i.monHoc.ten}}</td> 
+                    <td id="{{i.monHoc.id}}" *ngFor="let i of lesson3">{{i.monHoc.ten}}</td>
                   </tr>
                   <tr>
                     <th scope="row">Tiết 4</th>
-                    <td id={{i.monHoc.id}} *ngFor="let i of lesson4">{{i.monHoc.ten}}</td> 
+                    <td id="{{i.monHoc.id}}" *ngFor="let i of lesson4">{{i.monHoc.ten}}</td>
                   </tr>
                   <tr>
                     <th scope="row">Tiết 5</th>
-                    <td id={{i.monHoc.id}} *ngFor="let i of lesson5">{{i.monHoc.ten}}</td> 
+                    <td id="{{i.monHoc.id}}" *ngFor="let i of lesson5">{{i.monHoc.ten}}</td>
                   </tr>
                 </tbody>
               </table>
