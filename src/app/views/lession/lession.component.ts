@@ -51,10 +51,9 @@ export class LessionComponent implements OnInit {
     this.idChapter = e.target.value;
     if(this.idSubject && this.idChapter){
       this._lessionService.getLessionByChapterAndSubject(this.idChapter,this.idChapter).subscribe(response => {
-        this.allListLession = response;
-        console.log(response);
+        return this.allListLession = response;
       });
     }
-    return;
+    return  this.allListLession = [];
   }
 }

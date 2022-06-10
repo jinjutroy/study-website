@@ -24,6 +24,10 @@ export class NewsComponent implements OnInit {
   } 
   clickNewsExtra(e: any){
     this.topNews = [this.listNews[e.target.id - 1]]; 
+    this.listImgTopNews = this.topNews[0].images; 
+    
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   }
 
 }

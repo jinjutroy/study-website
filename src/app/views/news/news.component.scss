@@ -9,7 +9,8 @@
         text-align: justify;
         padding-block: 40px 10px;
     }
-    .news-primary__content{ 
+    .news-primary__content{  
+        overflow: auto;
         img{
             float: left;
             width: 400px;
@@ -39,8 +40,8 @@
     }
 }
 .news-primary__image{
-    margin-top: 20px;
     margin: 0 auto;
+    margin-top: 20px;
     width: 800px; 
     max-width: 100%;
     img{
@@ -48,4 +49,13 @@
     
         width: 100%;
    }
+}
+@media (max-width: 767px){
+    .news-container{ 
+        .news-primary__content{   
+            img{ 
+                padding-right: 0; 
+            }
+        }
+    }
 }
