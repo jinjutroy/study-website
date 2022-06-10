@@ -1,1 +1,34 @@
-<p>student works!</p>
+<div class="student-container">
+    <div class="container">
+        <header>Tìm kiếm học sinh</header>
+        <form [formGroup]="form" class="student-container__header" (ngSubmit)="handlerSearchStudent()">
+            <div class="student-container__input"><input (focus)="setCheck()" formControlName="mshs" type="text" placeholder="Mã số học sinh. - VD: HS0007"></div>
+            <button type="submit" class="student-container__button">Tìm kiếm <i class="bi bi-search"></i></button>
+        </form>
+        <div class="student-content">
+            <table class="schedule-table table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="col-table-student" scope="col">MSHS</th>
+                        <th class="col-table-student" scope="col">Tên</th>
+                        <th class="col-table-student" scope="col">Ngày sinh</th>
+                        <th class="col-table-student" scope="col">Địa chỉ</th>
+                        <th class="col-table-student" scope="col">Lớp</th>
+                        <th class="col-table-student" scope="col">Khóa học</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row"></th> 
+                        <th scope="row"></th> 
+                        <th scope="row"></th> 
+                        <th scope="row"></th> 
+                        <th scope="row"></th> 
+                    </tr> 
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="checkStudent" class="student-content__message">Không tìm thấy sinh viên. Vui lòng kiểm tra Mã số học sinh.</div>
+
+    </div>
+</div>

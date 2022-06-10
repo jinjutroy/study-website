@@ -63,13 +63,19 @@ export class ScheduleComponent implements OnInit {
               break;
             case "5":
               this.lesson5.push(element);
+              break; 
+            default:
               break;
-
           }
         });
 
       }
     )
-    this.lop = 0;
+    this.lop = 0; 
+    this.lesson1 = [];
+    this.lesson2 = [];
+    this.lesson3 = [];
+    this.lesson4 = [];
+    this.lesson5 = [];
   }
 }

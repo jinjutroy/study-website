@@ -49,12 +49,17 @@ export class LessionComponent implements OnInit {
   }
   handlerOnChangeChapter(e: any){
     this.idChapter = e.target.value;
-    if(this.idSubject && this.idChapter){
+    if(this.idSubject && this.idChapter){ 
+      this._lessionService.getLessionByChapterAndSubject(this.idChapter,this.idChapter).subscribe(response => {   
+        return this.allListLession = response;   
+      });
+    } 
+    return  this.allListLession = []; 
       this._lessionService.getLessionByChapterAndSubject(this.idChapter,this.idChapter).subscribe(response => {
         this.allListLession = response;
         console.log(response);
       });
     }
-    return;
+    return; 
   }
 }

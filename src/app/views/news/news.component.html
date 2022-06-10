@@ -1,4 +1,4 @@
-<div class="news-container">
+<div id="news" class="news-container">
     <div class="container">
         <div class="row">
             <div class="news-primary col-xl-10">
@@ -9,15 +9,16 @@
                   <br/>
                 {{topNews[0].noiDung}}
               </p>
-              <div class="news-primary__image" *ngFor="let img of listImgTopNews">
+              <div class="news-primary__image" *ngFor="let img of listImgTopNews; let i = index">
                 <img src={{img.linkimage}} alt="Loading...">
+                <span> Hình: {{i+1}}</span>
               </div>
             </div>
             <div class="news-extra col-xl-2">
                 <div class="row"> 
-                    <div class="news-extra__content col-xl-12" id={{news.id}} *ngFor="let news of listNews" (click)="clickNewsExtra($event)">
+                    <div  class="news-extra__content col-xl-12" id={{news.id}} *ngFor="let news of listNews" (click)="clickNewsExtra($event)">
                         <img id={{news.id}} src={{news.images[0].linkimage}} alt="Loading...">
-                        <h4 id={{news.id}}>{{news.tieuDe}}</h4>
+                        <h4 id={{news.id}}>{{news.tieuDe}}</h4> 
                     </div>
                 </div>
             </div>
