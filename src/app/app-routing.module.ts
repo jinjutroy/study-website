@@ -11,15 +11,20 @@ import { StudentComponent } from './views/student/student.component';
 import {TimetableteacherComponent} from "./views/timetableteacher/timetableteacher.component";
 import {TeacherGuard} from "./core/guards/teacher.guard";
 import {NewsComponent} from "./views/news/news.component";
+import { DetailLessionComponent } from './views/detail-lession/detail-lession.component';
 
 const routes: Routes = [
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'lession', component: LessionComponent , children: [
+  { path: 'lession',  children: [
     {
-      path: 'lession/:id',  // child route pa
-      component: QuestionComponent,  // child route component that the router renders
+      path: '',
+      component: LessionComponent ,
+    },
+    {
+      path: ':id',  // child route pa
+      component: DetailLessionComponent,  // child route component that the router renders
     },
   ]},
   { path: 'schedule', component: ScheduleComponent },

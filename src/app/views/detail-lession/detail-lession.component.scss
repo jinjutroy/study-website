@@ -1,0 +1,14 @@
+.detail-lession-container{
+    margin-top: var(--heightHeader);
+    min-height: 820px;
+    video{
+        width: 1200px;
+        max-width: 100%;
+        padding: 20px;
+        padding-left: 40px;
+    }
+}
+.detail-lession__title{       
+     padding-left: 40px;
+    font-size: 30px;
+}

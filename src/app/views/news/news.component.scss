@@ -50,6 +50,10 @@
         width: 100%;
    }
 }
+.news-line{
+    height: 2px;
+    background: rgba(0, 0, 0, 0.4);
+}
 @media (max-width: 767px){
     .news-container{ 
         .news-primary__content{   

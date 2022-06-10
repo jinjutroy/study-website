@@ -29,7 +29,8 @@ import { TimetableteacherComponent } from './views/timetableteacher/timetabletea
 import { NewsComponent } from './views/news/news.component';
 import {PageManagerLessionRoutingModule} from "./views/page-manager-lession/page-manager-lession-routing.module";
 import {PageManagerLessionModule} from "./views/page-manager-lession/page-manager-lession.module";
-import {environment} from "../environments/environment";
+import {environment} from "../environments/environment"; 
+import { DetailLessionComponent } from './views/detail-lession/detail-lession.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,9 @@ import {environment} from "../environments/environment";
     StudentComponent,
     TeacherComponent,
     TimetableteacherComponent,
-    NewsComponent],
+    NewsComponent,
+    DetailLessionComponent
+  ],
   imports: [
     // HomeModule,
     BrowserModule,

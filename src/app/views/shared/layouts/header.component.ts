@@ -31,13 +31,10 @@ export class HeaderComponent implements OnInit {
     this.isTeacher=this.auth.isTeacher();
     this.isUser=this.auth.isUser();
     this.isAuth=this.auth.isAuthenticated();
-
-  }
-
-  handlerClickNavbar = (e: any) => {
-    const listItem = document.querySelectorAll(".nav-link");
-    listItem.forEach(e => e.classList.remove("active"));
-    this.active = e.target.id;
+    
+  } 
+  handlerClickNavbar = (e: any) => { 
+    this.active = e.target.id; 
   }
 
   logout() {
