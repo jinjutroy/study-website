@@ -1,8 +1,8 @@
+import { BaiGiangRequest } from './../../core/dto/BaiGiangRequest';
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, pipe} from 'rxjs';
-import { BaiGiang } from 'src/app/core/model/BaiGiang';
-import {BaiGiangRequest} from "../../core/dto/BaiGiangRequest";
+import { BaiGiang } from 'src/app/core/model/BaiGiang'; 
 import {AuthService} from "../../core/services/pagelogin/auth.service";
 
 const httpOptions ={
@@ -33,8 +33,9 @@ export class LessionService {
   getLessionByName(name: string): Observable<BaiGiang[]>{
     return this.httpClient.get<BaiGiang[]>(apiLessionByIdUrl+"search?name="+name);
   }
-} 
+  
   createLession(baiGiang:BaiGiangRequest){
     return this.httpClient.post<BaiGiangRequest>(apiLessionByIdUrl+'create',baiGiang)
   }
 } 
+
