@@ -29,12 +29,14 @@
         select,
         textarea,
         input{
-            width: 80%;
-            outline: none;
+            width: 80%; 
             border: 1px solid rgba(48, 48, 48, 0.5);
             line-height: 32px;
             padding-left: 10px;
         };
+        textarea:focus, input:focus {
+            border-color: rgba(48, 48, 48, 0.5) !important;
+        }
     };
     .question-button{
         width: 160px;

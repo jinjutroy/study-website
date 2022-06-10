@@ -40,13 +40,13 @@
 <!--        <li (click)='handlerClickNavbar($event)' class="nav-item">-->
 <!--          <a (click)="logout()" id="logout" class="nav-link"   >Đăng xuất</a>-->
 <!--        </li>-->
-        <div class="header-dr-search dropdown mr-2" *ngIf="!isAuth" >
+        <div (click)='handlerClickNavbar($event)' class="header-dr-search dropdown mr-2" *ngIf="!isAuth" >
           <button class=" mt-2 dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Tìm kiếm
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
-            <button class="dropdown-item" type="button"  routerLink="search/student">Học sinh</button>
-            <button class="dropdown-item" type="button"routerLink="search/teacher">Giáo viên</button>
+            <button (click)='handlerClickNavbar($event)' class="dropdown-item" type="button"  routerLink="search/student">Học sinh</button>
+            <button (click)='handlerClickNavbar($event)' class="dropdown-item" type="button"routerLink="search/teacher">Giáo viên</button>
 <!--            <button class="dropdown-item" (click)="logout()" type="button">Đăng xuất</button>-->
           </div>
         </div>

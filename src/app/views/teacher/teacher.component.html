@@ -1,1 +1,34 @@
-<p>teacher works!</p>
+<div class="teacher-container">
+    <div class="container">
+        <header>Tìm kiếm giáo viên</header>
+        <form [formGroup]="form" class="teacher-container__header" (ngSubmit)="handlerSearchTeacher()">
+            <div class="teacher-container__input"><input (focus)="setCheck()" formControlName="mshs" type="text" placeholder="Mã số giáo viên."></div>
+            <button type="submit" class="teacher-container__button">Tìm kiếm <i class="bi bi-search"></i></button>
+        </form>
+        <div class="teacher-content">
+            <table class="schedule-table table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="col-table-teacher" scope="col">#</th>
+                        <th class="col-table-teacher" scope="col">Tên</th>
+                        <th class="col-table-teacher" scope="col">Ngày sinh</th>
+                        <th class="col-table-teacher" scope="col">Địa chỉ</th>
+                        <th class="col-table-teacher" scope="col">Gmail</th>
+                        <th class="col-table-teacher" scope="col">Khoa</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row"></th> 
+                        <th scope="row"></th> 
+                        <th scope="row"></th> 
+                        <th scope="row"></th> 
+                        <th scope="row"></th> 
+                    </tr> 
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="checkTeacher" class="teacher-content__message">Không tìm thấy sinh viên. Vui lòng kiểm tra Mã số học sinh.</div>
+
+    </div>
+</div>
