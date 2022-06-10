@@ -22,6 +22,7 @@ export class LessionComponent implements OnInit {
   listChapter: ChuongHoc[] = [];
   idSubject: number = 0;
   idChapter: number = 0;
+  message = "Loading...";
   constructor(private _lessionService: LessionService, private _subjectService: SubjectService, private _chapterService: ChapterService) {
   }
   ngOnInit() {
@@ -29,11 +30,11 @@ export class LessionComponent implements OnInit {
     this.listBlock.push(...blockinStorage);
     this._lessionService.getAll().subscribe(response => {
         this.allListLession.push(...response);
-        this.listLession = this.allListLession;
-        // this.listLession = this.allListLession.splice(0,12);
-
+        this.listLession = this.allListLession; 
       });
-
+      setTimeout(()=>{ 
+        this.message = "Bài giảng đang được cập nhật."
+      },3000)
   }
   handlerOnChangeLession(e:any){
     this._subjectService.getSubjectbyBlock(e.target.value).subscribe(response => {
@@ -48,6 +49,10 @@ export class LessionComponent implements OnInit {
     });
   }
   handlerOnChangeChapter(e: any){
+    this.message = "Loading...";
+    setTimeout(()=>{ 
+      this.message = "Bài giảng đang được cập nhật."
+    },3000)
     this.idChapter = e.target.value;
     if(this.idSubject && this.idChapter){
       this._lessionService.getLessionByChapterAndSubject(this.idChapter,this.idChapter).subscribe(response => {
@@ -56,8 +61,7 @@ export class LessionComponent implements OnInit {
     }
     this.allListLession = [];
       this._lessionService.getLessionByChapterAndSubject(this.idChapter,this.idChapter).subscribe(response => {
-        this.allListLession = response;
-        console.log(response);
+        this.allListLession = response; 
       });
     }
 
