@@ -9,19 +9,16 @@ import { ScheduleComponent } from './views/schedule/schedule.component';
 import { TeacherComponent } from './views/teacher/teacher.component';
 import { StudentComponent } from './views/student/student.component';
 import {TimetableteacherComponent} from "./views/timetableteacher/timetableteacher.component";
-import { NewsComponent } from './views/news/news.component';
+import {TeacherGuard} from "./core/guards/teacher.guard";
+import {NewsComponent} from "./views/news/news.component";
 
 const routes: Routes = [
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'lession', children: [
+  { path: 'lession', component: LessionComponent , children: [
     {
-      path:'',
-      component: LessionComponent,
-    },
-    {
-      path: ':id',  // child route pa 
+      path: 'lession/:id',  // child route pa
       component: QuestionComponent,  // child route component that the router renders
     },
   ]},
@@ -30,9 +27,9 @@ const routes: Routes = [
   { path: 'search/teacher', component: TeacherComponent },
   { path: 'search/student', component: StudentComponent },
   { path: 'q&a', component: QuestionComponent },
-  { path: 'tabletime', component: TimetableteacherComponent },
+  { path: 'tabletime', component: TimetableteacherComponent,canActivate:[TeacherGuard] },
   // {path: "**", component: PagenotfoundComponent}
-  { path: '**', pathMatch: 'full', 
+  { path: '**', pathMatch: 'full',
   component: PagenotfoundComponent },
 ];
 

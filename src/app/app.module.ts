@@ -1,7 +1,7 @@
 
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from './views/shared/shared.module';
-
+import { AngularFireModule} from '@angular/fire/compat'
 import { NgModule } from '@angular/core';
 import {
   FooterComponent,
@@ -22,11 +22,14 @@ import {HttpClientModule} from "@angular/common/http";
 import { StudentComponent } from './views/student/student.component';
 import { TeacherComponent } from './views/teacher/teacher.component';
 import {PagemarkRoutingModule} from "./views/pagemark/pagemark-routing.module";
-import {PagemarkModule} from "./views/pagemark/pagemark.module"; 
+import {PagemarkModule} from "./views/pagemark/pagemark.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatSnackBarModule} from "@angular/material/snack-bar"; 
-import { TimetableteacherComponent } from './views/timetableteacher/timetableteacher.component';  
-import { NewsComponent } from './views/news/news.component';  
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { TimetableteacherComponent } from './views/timetableteacher/timetableteacher.component';
+import { NewsComponent } from './views/news/news.component';
+import {PageManagerLessionRoutingModule} from "./views/page-manager-lession/page-manager-lession-routing.module";
+import {PageManagerLessionModule} from "./views/page-manager-lession/page-manager-lession.module";
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -39,9 +42,9 @@ import { NewsComponent } from './views/news/news.component';
     LessionComponent,
     NotificationComponent,
     StudentComponent,
-    TeacherComponent, 
+    TeacherComponent,
     TimetableteacherComponent,
-    NewsComponent], 
+    NewsComponent],
   imports: [
     // HomeModule,
     BrowserModule,
@@ -53,11 +56,14 @@ import { NewsComponent } from './views/news/news.component';
     ReactiveFormsModule,
     PageloginRoutingModule,
     PageloginModule,
-    AppRoutingModule,
     PagemarkRoutingModule,
     PagemarkModule,
-    BrowserAnimationsModule,MatSnackBarModule
-
+    BrowserAnimationsModule,MatSnackBarModule,
+    PageManagerLessionRoutingModule,
+    PageManagerLessionModule,
+    // SafePipeModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AppRoutingModule
 
 
   ],
