@@ -54,12 +54,11 @@ export class LessionComponent implements OnInit {
         return this.allListLession = response;   
       });
     } 
-    return  this.allListLession = []; 
+    this.allListLession = []; 
       this._lessionService.getLessionByChapterAndSubject(this.idChapter,this.idChapter).subscribe(response => {
         this.allListLession = response;
         console.log(response);
       });
-    }
-    return; 
+    } 
   }
-}
+
