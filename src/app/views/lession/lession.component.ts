@@ -30,9 +30,9 @@ export class LessionComponent implements OnInit {
     this.listBlock.push(...blockinStorage);
     this._lessionService.getAll().subscribe(response => {
         this.allListLession.push(...response);
-        this.listLession = this.allListLession; 
+        this.listLession = this.allListLession;
       });
-      setTimeout(()=>{ 
+      setTimeout(()=>{
         this.message = "Bài giảng đang được cập nhật."
       },3000)
   }
@@ -50,7 +50,7 @@ export class LessionComponent implements OnInit {
   }
   handlerOnChangeChapter(e: any){
     this.message = "Loading...";
-    setTimeout(()=>{ 
+    setTimeout(()=>{
       this.message = "Bài giảng đang được cập nhật."
     },3000)
     this.idChapter = e.target.value;
@@ -61,8 +61,8 @@ export class LessionComponent implements OnInit {
     }
     this.allListLession = [];
       this._lessionService.getLessionByChapterAndSubject(this.idChapter,this.idChapter).subscribe(response => {
-        this.allListLession = response; 
+        this.allListLession = response;
       });
     }
+  }
 
-}

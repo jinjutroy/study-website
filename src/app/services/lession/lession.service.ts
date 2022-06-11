@@ -33,7 +33,6 @@ export class LessionService {
   getLessionByName(name: string): Observable<BaiGiang[]>{
     return this.httpClient.get<BaiGiang[]>(apiLessionByIdUrl+"search?name="+name);
   }
-
   createLession(baiGiang:BaiGiangRequest){
     return this.httpClient.post<BaiGiangRequest>(apiLessionByIdUrl+'create',baiGiang)
   }

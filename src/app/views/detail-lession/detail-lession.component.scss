@@ -8,7 +8,17 @@
         padding-left: 40px;
     }
 }
-.detail-lession__title{       
+.detail-lession__title{
      padding-left: 40px;
     font-size: 30px;
+}
+.detail-lession-type{
+    display: flex;
+    padding-left: 40px;
+    justify-content: flex-start;
+    p{
+
+    color: rgba(49, 49, 252, 0.726);
+    margin-bottom: 0;
+    }
 }
