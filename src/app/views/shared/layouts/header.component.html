@@ -56,7 +56,7 @@
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu4">
             <a routerLink="/students" [ngClass]="{'active': active === 'students'}" class="dropdown-item" type="button">Quản lí học sinh</a>
-            <button class="dropdown-item" type="button">Quản lí giáo viên</button>
+            <a class="dropdown-item" routerLink="/teachers" [ngClass]="{'active': active === 'teachers'}" type="button">Quản lí giáo viên</a>
             <button class="dropdown-item" type="button">Quản lí lớp</button>
             <button class="dropdown-item" type="button">Quản lí tin tức</button>
             <button class="dropdown-item" type="button">Quản lí bài giảng</button>
