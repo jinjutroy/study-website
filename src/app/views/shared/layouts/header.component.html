@@ -55,7 +55,7 @@
             Quản lí
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu4">
-            <button class="dropdown-item" type="button">Quản lí học sinh</button>
+            <a routerLink="/students" [ngClass]="{'active': active === 'students'}" class="dropdown-item" type="button">Quản lí học sinh</a>
             <button class="dropdown-item" type="button">Quản lí giáo viên</button>
             <button class="dropdown-item" type="button">Quản lí lớp</button>
             <button class="dropdown-item" type="button">Quản lí tin tức</button>
