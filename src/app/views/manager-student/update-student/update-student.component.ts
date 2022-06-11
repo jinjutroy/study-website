@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {finalize} from "rxjs";
 import {formatDate} from "@angular/common";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
@@ -23,8 +23,17 @@ export class UpdateStudentComponent implements OnInit {
               private snackbar: MatSnackBar,
               private dialogRef: MatDialogRef<UpdateStudentComponent>,) {
   }
-
-  studentForm!: FormGroup;
+  studentForm = new FormGroup({
+    ngaySinh: new FormControl(),
+    tonGiao:  new FormControl(),
+    diaChi:  new FormControl(), 
+    tenBo:  new FormControl(),
+    tenMe: new FormControl(),
+    gioiTinh: new FormControl(),
+    danToc: new FormControl(),
+    sdtBoMe: new FormControl() ,
+    hinhAnh: new FormControl() ,
+  });   
   selectedImage: any = null;
   link!: string;
   ngay!: string;
