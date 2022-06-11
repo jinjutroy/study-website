@@ -1,0 +1,53 @@
+<div class="container mt-5">
+  <!-- Content here -->
+  <p class="mt-lg-5">detailmark works!</p>
+  <p class="mt-lg-5" style="color: white">detailmark works!</p>
+  <table class="table mt-4 table-hover rounded p-3 table-bordered">
+    <thead>
+    <tr>
+      <th scope="col">STT</th>
+      <th scope="col">Mã giáo viên</th>
+      <th scope="col">Họ và tên</th>
+      <th scope="col">Ngày sinh</th>
+      <th scope="col">Giới tính</th>
+      <th scope="col">Quê quán</th>
+      <th scope="col">Số điện thoại</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phòng ban</th>
+      <th scope="col">Chi tiết</th>
+      <th scope="col"> Sửa</th>
+      <th scope="col">Xoá</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let gv of listgv; let i = index">
+      <td>{{gv.ten}}</td>
+      <td>{{i}}</td>
+    </tr>
+
+<!--    <tr *ngFor="let i in listgv ;  let i= index">-->
+<!--      <th scope="row">{{giaovien}}</th>-->
+
+<!--&lt;!&ndash;    <td>{{teacher.id}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;    <td>{{teacher.ten}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;    <td>{{teacher.ngaySinh}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;    <td>{{teacher.gioiTinh}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;    <td>{{teacher.diaChi}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;    <td>{{teacher.soDienThoai}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;    <td>{{teacher.email}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;    <td>{{teacher.phongBan.name}}</td>&ndash;&gt;-->
+<!--      <td><a class="btn btn-warning" ><i class="bi bi-eye"></i></a></td>-->
+<!--      <td><a class="btn btn-info"><i class="bi bi-pencil-square"></i></a></td>-->
+<!--      <td><a style="cursor: pointer" class="btn btn-danger" ><i class="bi bi-trash" style="color:white;"></i></a></td>-->
+
+<!--    </tr>-->
+
+    </tbody>
+  </table>
+
+</div>
+<p>hihihihiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</p>
+<p *ngFor="let te of listgv">{{te.ten}}</p>
+<!--<p >{{listgv[0].ten}}</p>-->
+
+
