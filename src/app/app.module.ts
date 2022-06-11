@@ -29,7 +29,9 @@ import { TimetableteacherComponent } from './views/timetableteacher/timetabletea
 import { NewsComponent } from './views/news/news.component';
 import {PageManagerLessionRoutingModule} from "./views/page-manager-lession/page-manager-lession-routing.module";
 import {PageManagerLessionModule} from "./views/page-manager-lession/page-manager-lession.module";
-import {environment} from "../environments/environment"; 
+import {environment} from "../environments/environment";
+import {ManagerStudentModule} from "./views/manager-student/manager-student.module";
+import {ManagerStudentRoutingModule} from "./views/manager-student/manager-student-routing.module";
 import { DetailLessionComponent } from './views/detail-lession/detail-lession.component';
 
 @NgModule({
@@ -45,9 +47,8 @@ import { DetailLessionComponent } from './views/detail-lession/detail-lession.co
     StudentComponent,
     TeacherComponent,
     TimetableteacherComponent,
-    NewsComponent,
-    DetailLessionComponent
-  ],
+    DetailLessionComponent,
+    NewsComponent],
   imports: [
     // HomeModule,
     BrowserModule,
@@ -66,6 +67,8 @@ import { DetailLessionComponent } from './views/detail-lession/detail-lession.co
     PageManagerLessionModule,
     // SafePipeModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    ManagerStudentModule,
+    ManagerStudentRoutingModule,
     AppRoutingModule
 
 

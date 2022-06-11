@@ -11,5 +11,6 @@ export interface HocSinh{
   sdtBoMe:string,
   isActive:boolean,
   ngaySinh:string,
-  nguoiDung:any
+  nguoiDung:any,
+  hinhAnh:string
 }
