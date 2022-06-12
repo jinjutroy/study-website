@@ -45,8 +45,8 @@
         Tìm kiếm
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
-            <button (click)='handlerClickNavbar($event)' class="dropdown-item" type="button"  routerLink="search/student">Học sinh</button>
-            <button (click)='handlerClickNavbar($event)' class="dropdown-item" type="button"routerLink="search/teacher">Giáo viên</button>
+            <button (click)='handlerClickNavbar($event)' id="search-student" class="dropdown-item" type="button"  routerLink="search/student">Học sinh</button>
+            <button (click)='handlerClickNavbar($event)' id="search-teacher"  class="dropdown-item" type="button"routerLink="search/teacher">Giáo viên</button>
 <!--            <button class="dropdown-item" (click)="logout()" type="button">Đăng xuất</button>-->
           </div>
         </div>
@@ -70,8 +70,8 @@
            Xin chào: {{username}}
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <a class="dropdown-item" routerLink="/detailmark"  *ngIf="isUser">Xem điểm</a>
-              <button class="dropdown-item" type="button">Thông tin cá nhân</button>
+              <a class="dropdown-item" (click)='handlerClickNavbar($event)'  routerLink="/detailmark"  *ngIf="isUser">Xem điểm</a>
+              <button class="dropdown-item"  (click)='handlerClickNavbar($event)' type="button">Thông tin cá nhân</button>
               <button class="dropdown-item" (click)="logout()" type="button">Đăng xuất</button>
             </div>
           </div>

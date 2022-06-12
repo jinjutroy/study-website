@@ -48,7 +48,7 @@ export class LessionComponent implements OnInit {
       this.listChapter = [...response];
     });
   }
-  handlerOnChangeChapter(e: any){
+  handlerOnChangeChapter(e: any){  
     this.message = "Loading...";
     setTimeout(()=>{
       this.message = "Bài giảng đang được cập nhật."
@@ -56,13 +56,17 @@ export class LessionComponent implements OnInit {
     this.idChapter = e.target.value;
     if(this.idSubject && this.idChapter){
       this._lessionService.getLessionByChapterAndSubject(this.idChapter,this.idChapter).subscribe(response => {
-        return this.allListLession = response;
+        this.allListLession = response
+        return this.listLession =  this.allListLession;
       });
     }
-    this.allListLession = [];
-      this._lessionService.getLessionByChapterAndSubject(this.idChapter,this.idChapter).subscribe(response => {
-        this.allListLession = response;
-      });
-    }
+    this.allListLession = [];  
+    this.listLession = [];  
+    } 
+  changeValueLession(e: any){
+     setTimeout(()=>{
+      this.listLession = this.allListLession.filter(x => x.ten.toLowerCase().includes(e.target.value.toLowerCase()));
+     },1000)
   }
+}
 
