@@ -16,6 +16,7 @@ export class DetailStudentComponent implements OnInit {
               private dialogRef: MatDialogRef<DetailStudentComponent>,) { }
 hocSinh!:HocSinh;
   ngOnInit(): void {
+
     this.studentService.getStudentByid(this.data).subscribe(data=>{
       this.hocSinh=data;
     })

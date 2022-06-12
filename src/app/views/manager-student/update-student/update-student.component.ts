@@ -55,26 +55,26 @@ export class UpdateStudentComponent implements OnInit {
         idLop: [this.data.idlop, Validators.required]
       })
 
-    this.studentService.getStudentByid(this.data.idhocsinh).subscribe(data=>{
-      console.log(data.ngaySinh);
-      this.ngay=data.ngaySinh;
-      this.link=data.hinhAnh;
-     this.studentForm.patchValue({ten:data.ten});
-     this.studentForm.patchValue({diaChi:data.diaChi});
-     this.studentForm.patchValue({gioiTinh:data.gioiTinh});
-     this.studentForm.patchValue({danToc:data.danToc});
-     this.studentForm.patchValue({tenBo:data.tenBo});
-     this.studentForm.patchValue({tenMe:data.tenMe});
-     this.studentForm.patchValue({tonGiao:data.tonGiao});
-     this.studentForm.patchValue({sdtBoMe:data.sdtBoMe});
-     this.studentForm.value.hinhAnh='a';
-     this.studentForm.value.ngaySinh=this.ngay;
-     this.studentForm.value.ngaySinh=data.ngaySinh;
-      this.link=data.hinhAnh
+    this.studentService.getStudentByid(this.data.idhocsinh).subscribe(data => {
+      this.ngay = data.ngaySinh;
+      this.link = data.hinhAnh;
+      this.studentForm.patchValue({ten: data.ten});
+      this.studentForm.patchValue({diaChi: data.diaChi});
+      this.studentForm.patchValue({gioiTinh: data.gioiTinh});
+      this.studentForm.patchValue({danToc: data.danToc});
+      this.studentForm.patchValue({tenBo: data.tenBo});
+      this.studentForm.patchValue({tenMe: data.tenMe});
+      this.studentForm.patchValue({tonGiao: data.tonGiao});
+      this.studentForm.patchValue({sdtBoMe: data.sdtBoMe});
+      this.studentForm.value.hinhAnh = 'a';
+      this.studentForm.value.ngaySinh = this.ngay;
+      this.studentForm.value.ngaySinh = data.ngaySinh;
+      this.link = data.hinhAnh
     })
 
 
   }
+
   transform() {
 // @ts-ignore
     let url = this.link;
@@ -97,8 +97,8 @@ export class UpdateStudentComponent implements OnInit {
       idLop: this.studentForm.value.idLop
     }).subscribe(value => {
       this.dialogRef.close();
-      this.snackbar.open("Bạn đã cập nhật thành công","ok",{duration:3000})
-    },e=>{
+      this.snackbar.open("Bạn đã cập nhật thành công", "ok", {duration: 3000})
+    }, e => {
       console.log(e);
     })
   }

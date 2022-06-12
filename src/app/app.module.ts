@@ -33,6 +33,7 @@ import {environment} from "../environments/environment";
 import {ManagerStudentModule} from "./views/manager-student/manager-student.module";
 import {ManagerStudentRoutingModule} from "./views/manager-student/manager-student-routing.module";
 import { DetailLessionComponent } from './views/detail-lession/detail-lession.component';
+import {ManagerTeacherModule} from "./views/manager-teacher/manager-teacher.module";
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { DetailLessionComponent } from './views/detail-lession/detail-lession.co
     AngularFireModule.initializeApp(environment.firebaseConfig),
     ManagerStudentModule,
     ManagerStudentRoutingModule,
+    ManagerTeacherModule,
     AppRoutingModule
 
 
