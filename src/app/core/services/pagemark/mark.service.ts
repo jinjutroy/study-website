@@ -4,6 +4,8 @@ import {AuthService} from "../pagelogin/auth.service";
 import {Diem} from "../../model/Diem";
 import {HocSinh} from "../../model/hocSinh";
 import {DiemRequest} from "../../dto/DiemRequest";
+import {Observable} from "rxjs";
+import {LopGiaoVienReponse} from "../../dto/LopGiaoVienReponse";
 
 @Injectable({
   providedIn: 'root'
@@ -28,4 +30,8 @@ export class MarkService {
     return this.http.put<any>(this.api+'/diem/hocSinh',diemRequest,{headers: this.headers});
   }
 
+  //quan li diem
+  getListMarkByidKhoiAndYear(idkhoi:number,year:number):Observable<LopGiaoVienReponse[]>{
+    return this.http.get<LopGiaoVienReponse[]>(this.api+'/lop/listkhoi?idkhoi='+idkhoi+'&year='+year);
+  }
 }

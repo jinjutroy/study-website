@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {MarkService} from "../../../core/services/pagemark/mark.service";
 import {Diem} from "../../../core/model/Diem";
 import {ActivatedRoute} from "@angular/router";
 import {DiemRequest} from "../../../core/dto/DiemRequest";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {config} from "rxjs";
+import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-update-detail-student',
@@ -14,13 +15,14 @@ import {config} from "rxjs";
 export class UpdateDetailStudentComponent implements OnInit {
 
   constructor(private markservice: MarkService, private activeroute: ActivatedRoute
-    , private snackbar: MatSnackBar) {
+    , private snackbar: MatSnackBar,
+              @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
   thisData!: Diem[];
 
   ngOnInit(): void {
-    this.markservice.getMarkByIdStudent(this.activeroute.snapshot.params['id']).subscribe(data => {
+    this.markservice.getMarkByIdStudent(this.data).subscribe(data => {
       this.thisData = data
     })
   }

@@ -9,19 +9,23 @@ import { UpdateDetailStudentComponent } from './update-detail-student/update-det
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatFormFieldModule} from "@angular/material/form-field";
+import { ListClassMarkComponent } from './list-class-mark/list-class-mark.component';
+import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 
 
 @NgModule({
   declarations: [
     DetailmarkComponent,
     UpdateMarkStudentComponent,
-    UpdateDetailStudentComponent
+    UpdateDetailStudentComponent,
+    ListClassMarkComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     PagemarkRoutingModule,
     MatSnackBarModule, BrowserAnimationsModule, MatFormFieldModule,
+    MatDialogModule
   ]
 })
 export class PagemarkModule { }
