@@ -18,12 +18,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row"></th> 
-                        <th scope="row"></th> 
-                        <th scope="row"></th> 
-                        <th scope="row"></th> 
-                        <th scope="row"></th> 
+                    <tr *ngIf="student.length > 0">
+                        <th scope="row">{{student[0]?.id}}</th> 
+                        <th scope="row">{{student[0]?.ten}}</th> 
+                        <th scope="row">{{student[0]?.ngaySinh}}</th> 
+                        <th scope="row">{{student[0]?.diaChi}}</th> 
+                        <th scope="row">{{student[0]?.diaChi}}</th> 
+                        <th scope="row">{{student[0]?.diaChi}}</th> 
                     </tr> 
                 </tbody>
             </table>
