@@ -6,10 +6,7 @@ import {AdminGuard} from "../../core/guards/admin.guard";
 
 const routes: Routes = [{
   path: "students", component: ListStudentComponent,canActivate:[AdminGuard]
-}
-  ,{
-    path: "students/create", component: CreateStudentComponent,canActivate:[AdminGuard]
-  }
+  } 
   ];
 
 @NgModule({
