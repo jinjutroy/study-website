@@ -2,6 +2,26 @@
   <!-- Content here -->
   <p class="mt-lg-5">detailmark works!</p>
   <p class="mt-lg-5" style="color: white">detailmark works!</p>
+  <div class="row d-flex justify-content-center mb-4">
+    <div class="col-3">
+      <input type="text" class="form-control" placeholder="Tìm kiếm theo tên" #ten>
+    </div>
+    <div class="col-3">
+      <select class="custom-select" *ngFor="let phongban of listphongbans" id="phong">
+        <option selected value="null">--Chọn phòng ban--</option>
+        <option value="{{phongban.id}}">{{phongban.ten}}</option>
+      </select>
+    </div>
+    <div class="col-3">
+      <button class="btn btn-info" (click)="searchTeacher(ten.value)" >Tìm kiếm</button>
+    </div>
+    <div class="col-6">
+    </div>
+
+
+  </div>
+  <h3>DANH SÁCH GIÁO VIÊN</h3>
+  <button class="btn btn-success mt-3" (click)="openDialogCreate()">Thêm mới</button>
   <table class="table mt-4 table-hover rounded p-3 table-bordered">
     <thead>
     <tr>
@@ -20,34 +40,28 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let gv of listgv; let i = index">
-      <td>{{gv.ten}}</td>
-      <td>{{i}}</td>
+    <tr *ngFor="let teacher of listgv |paginate:{itemsPerPage:3,currentPage:p};let i=index">
+      <th scope="row">{{i + 1}}</th>
+      <td>{{teacher.id}}</td>
+      <td>{{teacher.ten}}</td>
+      <td>{{teacher.ngaySinh}}</td>
+      <td>{{teacher.gioiTinh}}</td>
+      <td>{{teacher.diaChi}}</td>
+      <td>{{teacher.soDienThoai}}</td>
+      <td>{{teacher.email}}</td>
+      <td>{{teacher.phongBan.ten}}</td>
+      <td><a class="btn btn-warning" (click)="openDialogDetail(teacher.id)"><i class="bi bi-eye"></i></a></td>
+      <td><a class="btn btn-info" (click)="openDialogUpdate(teacher.id)"><i class="bi bi-pencil-square"></i></a></td>
+      <td><a style="cursor: pointer" class="btn btn-danger" (click)="openDialogDelete(teacher.id)"><i class="bi bi-trash" style="color:white;"></i></a></td>
     </tr>
-
-<!--    <tr *ngFor="let i in listgv ;  let i= index">-->
-<!--      <th scope="row">{{giaovien}}</th>-->
-
-<!--&lt;!&ndash;    <td>{{teacher.id}}</td>&ndash;&gt;-->
-<!--&lt;!&ndash;    <td>{{teacher.ten}}</td>&ndash;&gt;-->
-<!--&lt;!&ndash;    <td>{{teacher.ngaySinh}}</td>&ndash;&gt;-->
-<!--&lt;!&ndash;    <td>{{teacher.gioiTinh}}</td>&ndash;&gt;-->
-<!--&lt;!&ndash;    <td>{{teacher.diaChi}}</td>&ndash;&gt;-->
-<!--&lt;!&ndash;    <td>{{teacher.soDienThoai}}</td>&ndash;&gt;-->
-<!--&lt;!&ndash;    <td>{{teacher.email}}</td>&ndash;&gt;-->
-<!--&lt;!&ndash;    <td>{{teacher.phongBan.name}}</td>&ndash;&gt;-->
-<!--      <td><a class="btn btn-warning" ><i class="bi bi-eye"></i></a></td>-->
-<!--      <td><a class="btn btn-info"><i class="bi bi-pencil-square"></i></a></td>-->
-<!--      <td><a style="cursor: pointer" class="btn btn-danger" ><i class="bi bi-trash" style="color:white;"></i></a></td>-->
-
-<!--    </tr>-->
 
     </tbody>
   </table>
-
+  <pagination-controls class="text-right" *ngIf="checkPagination" [directionLinks]=true [autoHide]=true
+                       [responsive]=true (pageChange)="p=$event" previousLabel="Trước"
+                       nextLabel="Sau"></pagination-controls>
 </div>
-<p>hihihihiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</p>
-<p *ngFor="let te of listgv">{{te.ten}}</p>
-<!--<p >{{listgv[0].ten}}</p>-->
+
+
 
 

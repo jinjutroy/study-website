@@ -15,8 +15,9 @@ export class DeleteStudentComponent implements OnInit {
               private studentService: StudentsService,
               private snackbar:MatSnackBar,
               private dialogRef: MatDialogRef<DeleteStudentComponent>) { }
-mshs!:string;
-  isDisplay:boolean=false;
+
+  mshs!: string;
+  isDisplay: boolean = false;
   ngOnInit(): void {
     this.mshs=this.data;
   }
@@ -26,7 +27,6 @@ mshs!:string;
       this.dialogRef.close();
       this.snackbar.open("Xoá học sinh thành công ","Ok",{duration:3000})
     },e=>{
-      console.log(e)
       this.dialogRef.close();
         this.snackbar.open("Xoá thất bại ! Lỗi server bị chậm vui lòng thử lại, xin lỗi vì sự bất tiện này","OK",{
           duration:4000,
