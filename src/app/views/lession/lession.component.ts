@@ -65,8 +65,10 @@ export class LessionComponent implements OnInit {
     } 
   changeValueLession(e: any){
      setTimeout(()=>{
-      this.listLession = this.allListLession.filter(x => x.ten.toLowerCase().includes(e.target.value.toLowerCase()));
-     },1000)
+      this.listLession = this.allListLession.filter(x =>{
+        return x.ten.toLowerCase().search(e.target.value.toLowerCase()) !== -1; 
+      });
+     },600)
   }
 }
 
