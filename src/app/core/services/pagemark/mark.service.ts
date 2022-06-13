@@ -34,4 +34,6 @@ export class MarkService {
   getListMarkByidKhoiAndYear(idkhoi:number,year:number):Observable<LopGiaoVienReponse[]>{
     return this.http.get<LopGiaoVienReponse[]>(this.api+'/lop/listkhoi?idkhoi='+idkhoi+'&year='+year);
   }
+
+
 }

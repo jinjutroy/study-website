@@ -12,6 +12,7 @@ import {DetailStudentComponent} from "../detail-student/detail-student.component
 import {DeleteStudentComponent} from "../delete-student/delete-student.component";
 import {UpdateStudentComponent} from "../update-student/update-student.component";
 import {GiaoVien} from "../../../core/model/GiaoVien";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-list-student',
@@ -20,11 +21,15 @@ import {GiaoVien} from "../../../core/model/GiaoVien";
 })
 export class ListStudentComponent implements OnInit {
   p: number | any;
+  idlopmove: any;
 
   constructor(private studentService: StudentsService,
               private schedule: ScheduleService,
               private snackbar: MatSnackBar,
-              private matDialog: MatDialog,) {
+              private matDialog: MatDialog,
+              private route:Router) {
+    // @ts-ignore
+    this.idlopmove = this.route.getCurrentNavigation()?.extras.state?.idlop;
   }
 
   lopHocSinhReponse!: LopHocSinhReponse | null;
@@ -51,6 +56,23 @@ export class ListStudentComponent implements OnInit {
     this.schedule.getAllBlock().subscribe(data => {
       this.listKhois = data;
     })
+
+    if (this.idlopmove != null) {
+      this.studentService.getListHocSinhbyidlop(this.idlopmove).subscribe(data => {
+          this.isDisplayLoad = false
+          this.lopHocSinhReponse = data;
+          if (data.hocSinhs.length < 5) {
+            this.checkPagination = false;
+          }
+          this.p = 1;
+        }
+        , error => {
+          this.isDisplayLoad = false
+          this.snackbar.open("Không tìm thấy học sinh trong lớp này", "", {duration: 2000, verticalPosition: "top"})
+        })
+
+    }
+
   }
 
   setValueNamHoc(e: any) {
@@ -161,6 +183,6 @@ export class ListStudentComponent implements OnInit {
       idLop: this.idlop, idGv: Idgv
     }).subscribe(() => {
       this.snackbar.open("Cập nhật giáo viên chủ nhiệm thành công", "", {duration: 3000})
-    },error => console.log(error))
+    }, error => console.log(error))
   }
 }

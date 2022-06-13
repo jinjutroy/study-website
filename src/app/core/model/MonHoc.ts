@@ -1,4 +1,4 @@
 export interface MonHoc{
-  id:string,
+  id:number,
   ten:string
 }
