@@ -1,6 +1,6 @@
 export interface DiemRequest {
   "id": number,
-  "idMonHoc": string,
+  "idMonHoc": number,
   "idHocKiHocSinh": number,
   "diemGiuaKy": number,
   "diemCuoiKy": number

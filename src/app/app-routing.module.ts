@@ -13,6 +13,7 @@ import {TeacherGuard} from "./core/guards/teacher.guard";
 import {NewsComponent} from "./views/news/news.component";
 import { DetailLessionComponent } from './views/detail-lession/detail-lession.component';
 import {ListTeacherComponent} from "./views/manager-teacher/list-teacher/list-teacher.component";
+import {ListClassComponent} from "./views/manager-class/list-class/list-class.component";
 
 const routes: Routes = [
 
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'q&a', component: QuestionComponent },
   { path: 'teachers', component: ListTeacherComponent },
   { path: 'tabletime', component: TimetableteacherComponent,canActivate:[TeacherGuard] },
+  { path: 'classes', component: ListClassComponent },
   // {path: "**", component: PagenotfoundComponent}
   { path: '**', pathMatch: 'full',
   component: PagenotfoundComponent },

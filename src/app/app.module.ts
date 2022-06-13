@@ -34,6 +34,9 @@ import {ManagerStudentModule} from "./views/manager-student/manager-student.modu
 import {ManagerStudentRoutingModule} from "./views/manager-student/manager-student-routing.module";
 import { DetailLessionComponent } from './views/detail-lession/detail-lession.component';
 import {ManagerTeacherModule} from "./views/manager-teacher/manager-teacher.module";
+import {ManagerClassModule} from "./views/manager-class/manager-class.module";
+import {ManagerTimeTableModule} from "./views/manager-time-table/manager-time-table.module";
+import {ManagerTimeTableRoutingModule} from "./views/manager-time-table/manager-time-table-routing.module";
 
 @NgModule({
   declarations: [
@@ -71,6 +74,9 @@ import {ManagerTeacherModule} from "./views/manager-teacher/manager-teacher.modu
     ManagerStudentModule,
     ManagerStudentRoutingModule,
     ManagerTeacherModule,
+    ManagerClassModule,
+    ManagerTimeTableModule,
+    ManagerTimeTableRoutingModule,
     AppRoutingModule
 
 

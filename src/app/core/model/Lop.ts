@@ -10,7 +10,7 @@ export interface Lop {
       year: number
     },
     hocSinhLops: [
-      
+
     ]
 }
 
