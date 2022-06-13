@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {AuthService} from "../pagelogin/auth.service";
 import {Diem} from "../../model/Diem";
@@ -14,26 +14,31 @@ export class MarkService {
   private readonly api = 'https://website-truong-tieu-hoc.herokuapp.com/api';
   private readonly JWT = this.authService.getToken() || "";
   headers = new HttpHeaders({
-    'Authorization': 'Bearer ' +this.JWT
+    'Authorization': 'Bearer ' + this.JWT
   })
-  constructor(private http:HttpClient,private authService:AuthService) {
+
+  constructor(private http: HttpClient, private authService: AuthService) {
 
   }
-  getMarkByIdStudent(id:string){
-    return this.http.get<Diem[]>(this.api+'/diem/'+id,{headers: this.headers});
+
+  getMarkByIdStudent(id: string) {
+    return this.http.get<Diem[]>(this.api + '/diem/' + id, {headers: this.headers});
   }
-  getListStudentByidTeacher(id:string)
-  {
-    return this.http.get<HocSinh[]>(this.api+'/student/list/'+id,{headers: this.headers});
+
+  getListStudentByidTeacher(id: string) {
+    return this.http.get<HocSinh[]>(this.api + '/student/list/' + id, {headers: this.headers});
   }
-  updateMarkSudentByMark(diemRequest:DiemRequest){
-    return this.http.put<any>(this.api+'/diem/hocSinh',diemRequest,{headers: this.headers});
+
+  updateMarkSudentByMark(diemRequest: DiemRequest) {
+    return this.http.put<any>(this.api + '/diem/hocSinh', diemRequest, {headers: this.headers});
   }
 
   //quan li diem
-  getListMarkByidKhoiAndYear(idkhoi:number,year:number):Observable<LopGiaoVienReponse[]>{
-    return this.http.get<LopGiaoVienReponse[]>(this.api+'/lop/listkhoi?idkhoi='+idkhoi+'&year='+year);
+  getListMarkByidKhoiAndYear(idkhoi: number, year: number): Observable<LopGiaoVienReponse[]> {
+    return this.http.get<LopGiaoVienReponse[]>(this.api + '/lop/listkhoi?idkhoi=' + idkhoi + '&year=' + year);
   }
 
-
+  getMarkByYearAndIdStudent(year: number, idhs: string) {
+    return this.http.get<Diem[]>(this.api + '/diem?namhoc=' + year + '&hocsinh=' + idhs, {headers: this.headers});
+  }
 }
