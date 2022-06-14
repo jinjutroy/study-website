@@ -1,7 +1,7 @@
 import { CauHoi } from '../../core/model/CauHoi';
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {catchError, Observable, pipe} from 'rxjs';   
+import {catchError, Observable, pipe} from 'rxjs';
 import { Lop } from 'src/app/core/model/Lop';
 import { Khoi } from 'src/app/core/model/Khoi';
 import { ChiTietThoiKhoaBieu } from 'src/app/core/model/ChiTietThoiKhoaBieu';
@@ -9,7 +9,7 @@ import { ChiTietThoiKhoaBieu } from 'src/app/core/model/ChiTietThoiKhoaBieu';
 const httpOptions ={
   headers:new HttpHeaders({'Content-Type':'Application/json'})
 }
-const urlLop = 'https://website-truong-tieu-hoc.herokuapp.com/api/lop/khoi/'; 
+const urlLop = 'https://website-truong-tieu-hoc.herokuapp.com/api/lop/khoi/';
 const urlKhoi = "https://website-truong-tieu-hoc.herokuapp.com/api/khoi";
 const urlTkb = "https://website-truong-tieu-hoc.herokuapp.com/api/tb?lop="
 
@@ -21,13 +21,13 @@ export class ScheduleService {
   constructor(private httpClient:HttpClient) { }
   getAllBlock():Observable<Khoi[]>{
     return this.httpClient.get<Khoi[]>(urlKhoi).pipe();
-  }  
-  getListClassByID(id: number):Observable<Lop[]>{  
+  }
+  getListClassByID(id: number):Observable<Lop[]>{
     return this.httpClient.get<Lop[]>(urlLop + id).pipe();
-  } 
-  
-  getListScheduleByID(id: number):Observable<ChiTietThoiKhoaBieu[]>{  
+  }
+
+  getListScheduleByID(id: number):Observable<ChiTietThoiKhoaBieu[]>{
     return this.httpClient.get<ChiTietThoiKhoaBieu[]>(urlTkb + id).pipe();
-  } 
-  
+  }
+
 }

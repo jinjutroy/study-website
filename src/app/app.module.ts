@@ -37,6 +37,7 @@ import {ManagerTeacherModule} from "./views/manager-teacher/manager-teacher.modu
 import {ManagerClassModule} from "./views/manager-class/manager-class.module";
 import {ManagerTimeTableModule} from "./views/manager-time-table/manager-time-table.module";
 import {ManagerTimeTableRoutingModule} from "./views/manager-time-table/manager-time-table-routing.module";
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import {ManagerTimeTableRoutingModule} from "./views/manager-time-table/manager-
     ManagerClassModule,
     ManagerTimeTableModule,
     ManagerTimeTableRoutingModule,
+    MatDialogModule,
     AppRoutingModule
 
 

@@ -1,4 +1,5 @@
-export interface BaiGiangRequest{
+export interface LessionUpdate{
+  id:number,
   ten: string,
   mota: string,
   fileVideo: string,
