@@ -31,6 +31,10 @@ export class StudentsService {
   getListLopNameHocAndKhoi(idkhoi:number,idnamhoc:number): Observable<Lop[]> {
     return this.httpClient.get<Lop[]>(this.api+'/lop/listlop?idkhoi='+idkhoi+'&idnamhoc='+idnamhoc);
   }
+  getListLopNameHocAndKhoiThoiKhoaBieu(idkhoi:number,idnamhoc:number): Observable<Lop[]> {
+    return this.httpClient.get<Lop[]>(this.api+'/lop/listlop/thoikhoabieu?idkhoi='+idkhoi+'&idnamhoc='+idnamhoc);
+  }
+
   //get list hoc sinh
   getListHocSinhbyidlop(idlop:number,): Observable<LopHocSinhReponse> {
     return this.httpClient.get<LopHocSinhReponse>(this.api+'/student/listbyidlop/'+idlop,{headers:this.headers});

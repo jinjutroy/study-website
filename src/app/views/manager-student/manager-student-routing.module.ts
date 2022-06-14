@@ -5,9 +5,9 @@ import {CreateStudentComponent} from "./create-student/create-student.component"
 import {AdminGuard} from "../../core/guards/admin.guard";
 
 const routes: Routes = [{
-  path: "students", component: ListStudentComponent,canActivate:[AdminGuard]
-  } 
-  ];
+  path: "students", component: ListStudentComponent, canActivate: [AdminGuard]
+}
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

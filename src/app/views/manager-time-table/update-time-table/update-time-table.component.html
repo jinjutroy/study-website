@@ -4,7 +4,9 @@
   <p class="mt-lg-5" style="color: white">detailmark works!</p>
   <div class="schedule-content">
 
-
+    <div class="col-2">
+<!--      <button class="btn btn-success" routerLink="/createTimeTable" >Tạo thời khoá biểu</button>-->
+    </div>
     <div class="row">
       <div class="col-3">
         <select class="custom-select" (change)="setValueNamHoc($event);handlerOnChangeLop()">
@@ -25,7 +27,7 @@
         </select>
       </div>
     </div>
-    <table class="schedule-table table table-bordered">
+    <table class="schedule-table table table-bordered mt-2">
       <thead>
       <tr>
         <th scope="col">/</th>
@@ -80,5 +82,5 @@
       </tbody>
     </table>
   </div>
-  <button class="btn btn-success" (click)="updateTimeTable()">Cập nhật thời khoá biểu</button>
+  <button class="btn btn-success mt-2 mb-2" (click)="updateTimeTable()">Cập nhật thời khoá biểu</button>
 </div>

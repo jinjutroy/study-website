@@ -28,7 +28,7 @@ export class UpdateTimeTableComponent implements OnInit {
               private route: Router,
               private subjectService: SubjectService,
               private classService: ClassService,
-              private timetableService:TabletimeService) {
+              private timetableService: TabletimeService) {
   }
 
   listNamHocs: NamHoc[] = []
@@ -112,7 +112,7 @@ export class UpdateTimeTableComponent implements OnInit {
         });
       }
       , error => {
-        console.log("Không có thời khoá biểu của lớp này");
+        this.snackbar.open("Không có thời khoá biểu của lớp này","",{duration:3000});
         this.lesson1 = [];
         this.lesson2 = [];
         this.lesson3 = [];
@@ -121,127 +121,125 @@ export class UpdateTimeTableComponent implements OnInit {
         this.listMonHoc = [];
       })
   }
-  updateTimeTable(){
-    let lession1New:ThoiKhoaBieuDTO[]=[];
-    let lession2New:ThoiKhoaBieuDTO[]=[];
-    let lession3New:ThoiKhoaBieuDTO[]=[];
-    let lession4New:ThoiKhoaBieuDTO[]=[];
-    let lession5New:ThoiKhoaBieuDTO[]=[];
+
+  updateTimeTable() {
+    let lession1New: ThoiKhoaBieuDTO[] = [];
+    let lession2New: ThoiKhoaBieuDTO[] = [];
+    let lession3New: ThoiKhoaBieuDTO[] = [];
+    let lession4New: ThoiKhoaBieuDTO[] = [];
+    let lession5New: ThoiKhoaBieuDTO[] = [];
 
 
-    for(let lession of this.lesson1){
-      let chitiet:ThoiKhoaBieuDTO={
+    for (let lession of this.lesson1) {
+      let chitiet: ThoiKhoaBieuDTO = {
         id: lession.id,
         thu: lession.thu,
-        thuTu:lession.thuTu,
+        thuTu: lession.thuTu,
         idMonHoc: lession.monHoc.id,
         idThoiKhoaBieu: lession.thoiKhoaBieu.id
       }
       lession1New.push(chitiet);
     }
 
-    for(let lession of this.lesson2){
-      let chitiet:ThoiKhoaBieuDTO={
+    for (let lession of this.lesson2) {
+      let chitiet: ThoiKhoaBieuDTO = {
         id: lession.id,
         thu: lession.thu,
-        thuTu:lession.thuTu,
+        thuTu: lession.thuTu,
         idMonHoc: lession.monHoc.id,
         idThoiKhoaBieu: lession.thoiKhoaBieu.id
       }
       lession2New.push(chitiet);
     }
-    for(let lession of this.lesson3){
-      let chitiet:ThoiKhoaBieuDTO={
+    for (let lession of this.lesson3) {
+      let chitiet: ThoiKhoaBieuDTO = {
         id: lession.id,
         thu: lession.thu,
-        thuTu:lession.thuTu,
+        thuTu: lession.thuTu,
         idMonHoc: lession.monHoc.id,
         idThoiKhoaBieu: lession.thoiKhoaBieu.id
       }
       lession3New.push(chitiet);
     }
-    for(let lession of this.lesson4){
-      let chitiet:ThoiKhoaBieuDTO={
+    for (let lession of this.lesson4) {
+      let chitiet: ThoiKhoaBieuDTO = {
         id: lession.id,
         thu: lession.thu,
-        thuTu:lession.thuTu,
+        thuTu: lession.thuTu,
         idMonHoc: lession.monHoc.id,
         idThoiKhoaBieu: lession.thoiKhoaBieu.id
       }
       lession4New.push(chitiet);
     }
-    for(let lession of this.lesson5){
-      let chitiet:ThoiKhoaBieuDTO={
+    for (let lession of this.lesson5) {
+      let chitiet: ThoiKhoaBieuDTO = {
         id: lession.id,
         thu: lession.thu,
-        thuTu:lession.thuTu,
+        thuTu: lession.thuTu,
         idMonHoc: lession.monHoc.id,
         idThoiKhoaBieu: lession.thoiKhoaBieu.id
       }
       lession5New.push(chitiet);
     }
 
-    let dem=0;
-    this.timetableService.updateTimeTable(lession1New).subscribe(()=>{
-      dem+=dem;
-      console.log("you right");
-    },() => {
-      dem=1;
+    let dem = 0;
+    this.timetableService.updateTimeTable(lession1New).subscribe(() => {
+    }, () => {
+      dem = 1;
     });
-    this.timetableService.updateTimeTable(lession2New).subscribe(()=>{
-      console.log("you right");
-    },() => {
-      dem=1;
+    this.timetableService.updateTimeTable(lession2New).subscribe(() => {
+    }, () => {
+      dem = 1;
     });
-    this.timetableService.updateTimeTable(lession3New).subscribe(()=>{
-      console.log("you right");
-    },() => {
-      dem=1;
+    this.timetableService.updateTimeTable(lession3New).subscribe(() => {
+    }, () => {
+      dem = 1;
     });
-    this.timetableService.updateTimeTable(lession4New).subscribe(()=>{
-      console.log("you right");
-    },() => {
-      dem=1;
+    this.timetableService.updateTimeTable(lession4New).subscribe(() => {
+    }, () => {
+      dem = 1;
     });
-    this.timetableService.updateTimeTable(lession5New).subscribe(()=>{
-      console.log("you right");
-    },() => {
-      dem=1;
+    this.timetableService.updateTimeTable(lession5New).subscribe(() => {
+
+    }, () => {
+      dem = 1;
     });
-    if(dem==1){
-      this.snackbar.open("Cập nhật không thành công","",{duration:3000});
-    }else{
-      this.snackbar.open("Cập nhật thành công","",{duration:3000});
+    if (dem == 1) {
+      this.snackbar.open("Cập nhật không thành công", "", {duration: 3000});
+    } else {
+      this.snackbar.open("Cập nhật thành công", "", {duration: 3000});
     }
   }
+
   lop!: any;
-  monhoc!:MonHoc;
-  getTiet(index: ChiTietThoiKhoaBieu, lession: ChiTietThoiKhoaBieu[],i:number) {
+  monhoc!: MonHoc;
+
+  getTiet(index: ChiTietThoiKhoaBieu, lession: ChiTietThoiKhoaBieu[], i: number) {
     // @ts-ignore
     let change = document.getElementById("subjectchange" + index.id).value;
     this.classService.getClassById(change).subscribe(data => {
       this.lop = data
-       this.monhoc = {
+      this.monhoc = {
         id: this.lop.id,
         ten: this.lop.ten
       }
-      index.monHoc=this.monhoc;
+      index.monHoc = this.monhoc;
     })
 
-    if(i==1){
-      this.lesson1=lession;
+    if (i == 1) {
+      this.lesson1 = lession;
     }
-    if(i==2){
-      this.lesson2=lession;
+    if (i == 2) {
+      this.lesson2 = lession;
     }
-    if(i==3){
-      this.lesson3=lession;
+    if (i == 3) {
+      this.lesson3 = lession;
     }
-    if(i==4){
-      this.lesson4=lession;
+    if (i == 4) {
+      this.lesson4 = lession;
     }
-    if(i==5){
-      this.lesson5=lession;
+    if (i == 5) {
+      this.lesson5 = lession;
     }
 
   }
