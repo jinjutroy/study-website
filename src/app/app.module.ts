@@ -38,6 +38,9 @@ import {ManagerClassModule} from "./views/manager-class/manager-class.module";
 import {ManagerTimeTableModule} from "./views/manager-time-table/manager-time-table.module";
 import {ManagerTimeTableRoutingModule} from "./views/manager-time-table/manager-time-table-routing.module";
 import {MatDialogModule} from "@angular/material/dialog";
+import {ManagerNewModule} from "./views/manager-new/manager-new.module";
+import {ManagerNewRoutingModule} from "./views/manager-new/manager-new-routing.module";
+
 
 @NgModule({
   declarations: [
@@ -53,7 +56,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     TeacherComponent,
     TimetableteacherComponent,
     DetailLessionComponent,
-    NewsComponent],
+    NewsComponent,
+    ],
   imports: [
     // HomeModule,
     BrowserModule,
@@ -78,6 +82,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     ManagerClassModule,
     ManagerTimeTableModule,
     ManagerTimeTableRoutingModule,
+    ManagerNewModule,
+    ManagerNewRoutingModule,
     MatDialogModule,
     AppRoutingModule
 

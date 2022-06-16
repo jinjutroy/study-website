@@ -3,16 +3,11 @@ import {StudentsService} from "../../../core/services/pageManagerStudent/student
 import {TeacherService} from "../../../core/services/pageManagerTeacher/teacher.service";
 import {GiaoVien} from "../../../core/model/GiaoVien";
 import {PhongBan} from "../../../core/model/PhongBan";
-import {doc} from "@angular/fire/firestore";
-import {CreateStudentComponent} from "../../manager-student/create-student/create-student.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MatDialog} from "@angular/material/dialog";
 import {CreateTeacherComponent} from "../create-teacher/create-teacher.component";
-import {DetailStudentComponent} from "../../manager-student/detail-student/detail-student.component";
 import {DetailTeacherComponent} from "../detail-teacher/detail-teacher.component";
-import {DeleteStudentComponent} from "../../manager-student/delete-student/delete-student.component";
 import {DeleteTeacherComponent} from "../delete-teacher/delete-teacher.component";
-import {UpdateStudentComponent} from "../../manager-student/update-student/update-student.component";
 import {UpdateTeacherComponent} from "../update-teacher/update-teacher.component";
 
 @Component({

@@ -1,21 +1,44 @@
-import { TinTuc } from './../../core/model/TinTuc';
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, Observable, pipe } from 'rxjs';
+import {TinTuc} from './../../core/model/TinTuc';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {catchError, Observable, pipe} from 'rxjs';
+import {AuthService} from "../../core/services/pagelogin/auth.service";
+import {TinTucCreate} from "../../core/dto/TinTucCreate";
+import {ImageDTO} from "../../core/dto/imageDTO";
 
 const httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'Application/json' })
+  headers: new HttpHeaders({'Content-Type': 'Application/json'})
 }
 const apiUrl = 'https://website-truong-tieu-hoc.herokuapp.com/api/listNew';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class NewsService {
 
-    constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private authService: AuthService) {
+  }
 
-    getAllNews(): Observable<TinTuc[]> {
-        return this.httpClient.get<TinTuc[]>(apiUrl).pipe();
-    }
+  private readonly api = 'https://website-truong-tieu-hoc.herokuapp.com/api';
+
+  private readonly JWT = this.authService.getToken() || "";
+  headers = new HttpHeaders({
+    'Authorization': 'Bearer ' + this.JWT
+  })
+
+  getAllNews(): Observable<TinTuc[]> {
+    return this.httpClient.get<TinTuc[]>(apiUrl).pipe();
+  }
+
+  getTinTucById(id: number): Observable<TinTuc> {
+    return this.httpClient.get<TinTuc>(apiUrl + '/' + id);
+  }
+
+  deleteById(id: number) {
+    return this.httpClient.delete(apiUrl + '/delete/' + id, {headers: this.headers});
+  }
+
+  create(data: { noiDung: any; imageList: ImageDTO[][]; tieuDe: any }){
+    return this.httpClient.post(apiUrl + '/create' , data, {headers: this.headers});
+  }
 }
