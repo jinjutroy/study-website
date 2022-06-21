@@ -27,7 +27,7 @@ export class ListStudentComponent implements OnInit {
               private schedule: ScheduleService,
               private snackbar: MatSnackBar,
               private matDialog: MatDialog,
-              private route:Router) {
+              private route: Router) {
     // @ts-ignore
     this.idlopmove = this.route.getCurrentNavigation()?.extras.state?.idlop;
   }
@@ -43,7 +43,7 @@ export class ListStudentComponent implements OnInit {
   listgv: GiaoVien[] = [];
 
   ngOnInit(): void {
-
+    this.checkPagination = false;
     this.studentService.getListGV().subscribe(data => {
       this.listgv = data
     })
@@ -143,7 +143,7 @@ export class ListStudentComponent implements OnInit {
       data: this.idlop
     });
     dialogRef.afterClosed().subscribe(() => {
-      this.handlerOnChangeLopNewTime(this.idlop)
+      this.ngOnInit()
     })
   }
 

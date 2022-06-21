@@ -20,8 +20,7 @@
       <td>{{new.tieuDe}}</td>
       <td>{{new.noiDung}}</td>
       <td><a class="btn btn-warning" (click)="openDialogDetail(new.id)"><i class="bi bi-eye"></i></a></td>
-      <td><a class="btn btn-info" routerLink="/update-lession/"><i class="bi bi-pencil-square"></i></a>
-      </td>
+      <td><a class="btn btn-info" routerLink="/update-new" [state]="{idnew : new.id}" ><i class="bi bi-pencil-square"></i></a></td>
       <td><a style="cursor: pointer" class="btn btn-danger" (click)="openDialogDelete(new.id)"><i class="bi bi-trash" style="color:white;"></i></a></td>
     </tr>
     </tbody>

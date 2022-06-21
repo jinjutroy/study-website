@@ -50,7 +50,7 @@ export class UpdateTeacherComponent implements OnInit {
         tenDaiHoc: ['', Validators.required],
         ngaySinh: ['', Validators.required],
         email: ['', Validators.required],
-        soDienThoai: ['', Validators.required],
+        soDienThoai: ['',[ Validators.required,Validators.pattern("[0-9 ]{10}")]],
         gioiTinh: ['', Validators.required],
         idBan: ['', Validators.required],
         idBangCap: ['', Validators.required],

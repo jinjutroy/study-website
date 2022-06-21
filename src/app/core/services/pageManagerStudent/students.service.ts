@@ -14,7 +14,7 @@ import {GiaoVien} from "../../model/GiaoVien";
   providedIn: 'root'
 })
 export class StudentsService {
-  private readonly api = 'https://website-truong-tieu-hoc.herokuapp.com/api';
+  private readonly api = 'http://localhost:8080/api';
 
   private readonly JWT = this.authService.getToken() || "";
   headers = new HttpHeaders({
@@ -64,4 +64,8 @@ export class StudentsService {
     return this.httpClient.post<any>(this.api+'/lop/updatelop',data,{headers:this.headers})
   }
 
+
+  exportHs(idgv:string){
+    return this.httpClient.get(this.api+'/exportPdf/'+idgv);
+  }
 }

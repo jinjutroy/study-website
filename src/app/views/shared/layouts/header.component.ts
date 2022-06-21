@@ -31,10 +31,10 @@ export class HeaderComponent implements OnInit {
     this.isTeacher=this.auth.isTeacher();
     this.isUser=this.auth.isUser();
     this.isAuth=this.auth.isAuthenticated();
-    
-  } 
-  handlerClickNavbar = (e: any) => { 
-    this.active = e.target.id; 
+
+  }
+  handlerClickNavbar = (e: any) => {
+    this.active = e.target.id;
   }
 
   logout() {
@@ -43,5 +43,5 @@ export class HeaderComponent implements OnInit {
       window.location.reload();
     });
     this.username = '';
-  } 
+  }
 }

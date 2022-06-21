@@ -3,7 +3,7 @@
   <p class="mt-lg-5">detailmark works!</p>
   <p class="mt-lg-5" style="color: white">detailmark works!</p>
   <h3 style="text-align: center;margin-bottom: 20px">Cập nhật Tin Tức</h3>
-  <form [formGroup]="formnew" autocomplete="off" (ngSubmit)="createNew()">
+  <form [formGroup]="formnew" autocomplete="off" (ngSubmit)="updateNew()">
     <div class="form-group row d-flex justify-content-center">
       <div class="form-group row col-6">
         <label for="ten" class="col-sm-2 col-form-label">Tiêu đề </label>
@@ -21,7 +21,7 @@
       <div class="form-group row col-6">
         <label for="ten" class="col-sm-2 col-form-label">Nội dung</label>
         <div class="col-sm-10">
-          <textarea class="form-control" formControlName="noiDung" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <textarea class="form-control" formControlName="noiDung" id="exampleFormControlTextarea1" rows="10"></textarea>
         </div>
         <small style="color: red;margin-left: 79px"
                *ngIf="formnew.get('noiDung')?.hasError('required')  && formnew.get('noiDung')?.touched">

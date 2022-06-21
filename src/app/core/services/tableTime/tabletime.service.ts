@@ -10,7 +10,7 @@ import {ThoiKhoaBieuCreateDTO} from "../../dto/ThoiKhoaBieuCreateDTO";
   providedIn: 'root'
 })
 export class TabletimeService {
-  private readonly api = 'https://website-truong-tieu-hoc.herokuapp.com/api';
+  private readonly api = 'http://localhost:8080/api';
 
   constructor(private http: HttpClient,
               private authService: AuthService) {

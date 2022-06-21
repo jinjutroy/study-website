@@ -6,7 +6,7 @@ import {catchError, Observable, pipe} from 'rxjs';
 const httpOptions ={
   headers:new HttpHeaders({'Content-Type':'Application/json'})
 }
-const apiChapterBySubject = 'https://website-truong-tieu-hoc.herokuapp.com/api/chuonghoc/';
+const apiChapterBySubject = 'http://localhost:8080/api/chuonghoc/';
 
 @Injectable({
   providedIn: 'root'

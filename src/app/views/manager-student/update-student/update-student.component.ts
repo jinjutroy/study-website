@@ -26,14 +26,14 @@ export class UpdateStudentComponent implements OnInit {
   studentForm = new FormGroup({
     ngaySinh: new FormControl(),
     tonGiao:  new FormControl(),
-    diaChi:  new FormControl(), 
+    diaChi:  new FormControl(),
     tenBo:  new FormControl(),
     tenMe: new FormControl(),
     gioiTinh: new FormControl(),
     danToc: new FormControl(),
     sdtBoMe: new FormControl() ,
     hinhAnh: new FormControl() ,
-  });   
+  });
   selectedImage: any = null;
   link!: string;
   ngay!: string;
@@ -49,7 +49,7 @@ export class UpdateStudentComponent implements OnInit {
         tenBo: ['', Validators.required],
         tenMe: ['', Validators.required],
         tonGiao: ['', Validators.required],
-        sdtBoMe: ['', [Validators.required]],
+        sdtBoMe: ['', [Validators.required,Validators.pattern("[0-9 ]{10}")]],
         hinhAnh: [''],
         ngaySinh: ['', Validators.required],
         idLop: [this.data.idlop, Validators.required]

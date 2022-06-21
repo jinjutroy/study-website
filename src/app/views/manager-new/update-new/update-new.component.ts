@@ -6,6 +6,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {ImageDTO} from "../../../core/dto/imageDTO";
 import {finalize} from "rxjs";
 import {formatDate} from "@angular/common";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-update-new',
@@ -16,24 +17,40 @@ export class UpdateNewComponent implements OnInit {
   constructor(private fb: FormBuilder,
               @Inject(AngularFireStorage) private storage: AngularFireStorage,
               private tintucService: NewsService,
-              private snackbar:MatSnackBar) {
+              private snackbar: MatSnackBar,
+              private router: Router) {
+
+    // @ts-ignore
+    this.idnew = this.router.getCurrentNavigation().extras.state.idnew;
   }
+
+  idnew: number = 0;
   formnew!: FormGroup;
 
   ngOnInit(): void {
     this.formnew = this.fb.group({
+      id: this.idnew,
       tieuDe: ['', Validators.required],
       noiDung: ['', Validators.required],
       images: ['', Validators.required]
     })
+    this.tintucService.getTinTucById(this.idnew).subscribe((data => {
+      this.formnew.patchValue({tieuDe: data.tieuDe});
+      this.formnew.patchValue({noiDung: data.noiDung});
+      for (let imag of data.images) {
+        this.files.push({link: imag.linkimage})
+      }
+    }))
 
   }
+
   selectedImage!: any;
   files: ImageDTO[] = [];
   listimages!: any[];
   displayError!: boolean;
 
   showPreview(event: any) {
+   this.files = []
     // this.isDisplay = true;
     this.listimages = event.target.files;
     for (let img of this.listimages) {
@@ -60,21 +77,25 @@ export class UpdateNewComponent implements OnInit {
     }
   }
 
-  createNew() {
+  updateNew() {
 
     let a: any = {
+      id: this.idnew,
       tieuDe: this.formnew.value.tieuDe,
       noiDung: this.formnew.value.noiDung,
       imageList: this.files
     }
-
-    this.tintucService.create(a).subscribe(() => {
-      this.snackbar.open("Bạn đã thêm mới thành công","Ok",{duration:3000})
-    },error => {
-      console.log(error)
-      this.snackbar.open("Bạn đã thêm mới thành công","Ok",{duration:3000})
+    console.log(a)
+    this.tintucService.updatetin(a).subscribe((data) => {
+      console.log(data)
+      this.snackbar.open("Bạn đã cập nhật thành công", "Ok", {duration: 3000})
+    }, error => {
+      console.log(error);
+      this.snackbar.open("Bạn cập nhật không thành công", "Ok", {duration: 3000})
     })
   }
+
+
   getCurrentDateTime(): string {
     return formatDate(new Date(), 'dd-MM-yyyyhhmmssa', 'en-US');
   }

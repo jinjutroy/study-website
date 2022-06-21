@@ -40,6 +40,9 @@ import {ManagerTimeTableRoutingModule} from "./views/manager-time-table/manager-
 import {MatDialogModule} from "@angular/material/dialog";
 import {ManagerNewModule} from "./views/manager-new/manager-new.module";
 import {ManagerNewRoutingModule} from "./views/manager-new/manager-new-routing.module";
+import {NgxPaginationModule} from "ngx-pagination";
+import { ChangePasswordComponent } from './views/change-password/change-password.component';
+import { ListStudentTeacherComponent } from './views/list-student-teacher/list-student-teacher.component';
 
 
 @NgModule({
@@ -57,38 +60,42 @@ import {ManagerNewRoutingModule} from "./views/manager-new/manager-new-routing.m
     TimetableteacherComponent,
     DetailLessionComponent,
     NewsComponent,
+    ChangePasswordComponent,
+    ListStudentTeacherComponent,
+
+
     ],
-  imports: [
-    // HomeModule,
-    BrowserModule,
-    HomeRoutingModule,
-    SharedModule,
-    // LessionModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    PageloginRoutingModule,
-    PageloginModule,
-    PagemarkRoutingModule,
-    PagemarkModule,
-    BrowserAnimationsModule,MatSnackBarModule,
-    PageManagerLessionRoutingModule,
-    PageManagerLessionModule,
-    // SafePipeModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    ManagerStudentModule,
-    ManagerStudentRoutingModule,
-    ManagerTeacherModule,
-    ManagerClassModule,
-    ManagerTimeTableModule,
-    ManagerTimeTableRoutingModule,
-    ManagerNewModule,
-    ManagerNewRoutingModule,
-    MatDialogModule,
-    AppRoutingModule
+    imports: [
+        // HomeModule,
+        BrowserModule,
+        HomeRoutingModule,
+        SharedModule,
+        // LessionModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        PageloginRoutingModule,
+        PageloginModule,
+        PagemarkRoutingModule,
+        PagemarkModule,
+        BrowserAnimationsModule, MatSnackBarModule,
+        PageManagerLessionRoutingModule,
+        PageManagerLessionModule,
+        // SafePipeModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        ManagerStudentModule,
+        ManagerStudentRoutingModule,
+        ManagerTeacherModule,
+        ManagerClassModule,
+        ManagerTimeTableModule,
+        ManagerTimeTableRoutingModule,
+        ManagerNewModule,
+        ManagerNewRoutingModule,
+        MatDialogModule,
+        AppRoutingModule, NgxPaginationModule
 
 
-  ],
+    ],
   providers: [HeaderComponent],
   bootstrap: [AppComponent]
 })

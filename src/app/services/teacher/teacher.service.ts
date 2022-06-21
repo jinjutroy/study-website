@@ -7,7 +7,7 @@ import { GiaoVien } from 'src/app/core/model/GiaoVien';
 const httpOptions ={
   headers:new HttpHeaders({'Content-Type':'Application/json'})
 }
-const urlSearchName = 'https://website-truong-tieu-hoc.herokuapp.com/api/teacher/search?name=';
+const urlSearchName = 'http://localhost:8080/api/teacher/search?name=';
 
 @Injectable({
   providedIn: 'root'

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {StudentsService} from "../../../core/services/pageManagerStudent/students.service";
 import {ScheduleService} from "../../../services/schedule/schedule.service";
 import {MarkService} from "../../../core/services/pagemark/mark.service";
@@ -22,17 +22,19 @@ export class ListClassComponent implements OnInit {
 
   constructor(private studentService: StudentsService,
               private schedule: ScheduleService,
-              private markService:MarkService,
+              private markService: MarkService,
               private snackbar: MatSnackBar,
-              private route:Router,
-              private classService:ClassService,
+              private route: Router,
+              private classService: ClassService,
               private matDialog: MatDialog) {
   }
+
   khoiValue: any;
   namhocValue: any;
   listNamHocs: NamHoc[] = []
   listKhois: Khoi[] = []
   listLops: LopGiaoVienReponse[] = [];
+
   ngOnInit(): void {
     this.studentService.getListNameHoc().subscribe(
       data => {
@@ -43,6 +45,7 @@ export class ListClassComponent implements OnInit {
       this.listKhois = data;
     })
   }
+
   setValueNamHoc(e: any) {
     this.namhocValue = e.target.value;
   }
@@ -60,24 +63,36 @@ export class ListClassComponent implements OnInit {
           console.log(data)
           this.listLops = data;
         }
+        , error => {
+
+          console.log(error)
+        })
+    }
+  }
+
+  moveListStudentByClass(lop: any) {
+    this.route.navigateByUrl("/students", {state: {idlop: lop}})
+  }
+
+  upClass(lop: LopGiaoVienReponse) {
+    if (lop.tenLop.charAt(0) == '5') {
+      this.snackbar.open("Đã đạt tối đa lớp", "ok", {duration: 3000});
+    } else {
+      this.classService.upClassByidlop({
+        ten: lop.tenLop,
+        year: lop.niemKhoa,
+        idgv: lop.idgv,
+        idlop: lop.idLop
+      }).subscribe(() => {
+          this.snackbar.open("lên thành công ", "ok", {duration: 3000});
+        }, error => {
+          this.snackbar.open("lớp này đã cập nhật lên lớp rùi ", "ok", {duration: 3000});
+          console.log(error)
+        }
       )
     }
   }
-  moveListStudentByClass(lop:any){
-    this.route.navigateByUrl("/students",{ state:{ idlop:lop }})
-  }
 
-  upClass(lop:LopGiaoVienReponse){
-    console.log(lop)
-    this.classService.upClassByidlop({
-      ten:lop.tenLop,
-      year:lop.niemKhoa,
-      idgv:lop.idgv,
-      idlop:lop.idLop
-    }).subscribe(()=>{
-      this.snackbar.open("load thành công ","ok",{duration:3000});
-    },error => console.log(error))
-  }
   openDialogCreate() {
     const dialogRef = this.matDialog.open(CreateClassComponent, {
       width: '500px',
@@ -87,11 +102,12 @@ export class ListClassComponent implements OnInit {
       this.ngOnInit()
     })
   }
-  move(a:any){
-    if(a!=null){
-      this.route.navigateByUrl("/updatemark",{ state:{ name:a }})
-    }else {
-      this.snackbar.open("giáo viên không có nehs","ok",{duration:3000})
+
+  move(a: any) {
+    if (a != null) {
+      this.route.navigateByUrl("/updatemark", {state: {name: a}})
+    } else {
+      this.snackbar.open("giáo viên không có nehs", "ok", {duration: 3000})
     }
   }
 

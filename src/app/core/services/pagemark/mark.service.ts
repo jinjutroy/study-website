@@ -11,7 +11,7 @@ import {LopGiaoVienReponse} from "../../dto/LopGiaoVienReponse";
   providedIn: 'root'
 })
 export class MarkService {
-  private readonly api = 'https://website-truong-tieu-hoc.herokuapp.com/api';
+  private readonly api = 'http://localhost:8080/api';
   private readonly JWT = this.authService.getToken() || "";
   headers = new HttpHeaders({
     'Authorization': 'Bearer ' + this.JWT

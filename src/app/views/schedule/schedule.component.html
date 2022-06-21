@@ -1,20 +1,26 @@
 <div class="schedule-container">
     <div class="container">
         <div class="schedule-selection">
-            <div class="schedule-block">
-                <select class="form-select" aria-label="Default select example" (change)="onChangeScheduleBlock($event)">
+          <div class="mr-5">
+            <select class="custom-select" (change)="setValueNamHoc($event);handlerOnChangeLop()">
+              <option selected>Chọn năm học</option>
+              <option *ngFor="let namhoc of listNamHocs" value="{{namhoc.id}}">{{namhoc.year}}</option>
+            </select>
+          </div>
+            <div class="schedule-block ml-5">
+                <select class="form-select" aria-label="Default select example" (change)="setValueKhoi($event);handlerOnChangeLop()">
                     <option selected>Chọn khối</option>
                     <option value={{block.id}} *ngFor="let block of listBlock">{{block.ten || "Loading..."}}</option>
                   </select>
             </div>
             <div class="schedule-class">
-                <select class="form-select" aria-label="Default select example" (change)="onChangeScheduleClass($event)">
+                <select class="form-select" aria-label="Default select example" (change)="handlerOnChangeLopNew($event)">
                     <option selected>Chọp lớp</option>
                     <option value={{class.id}} *ngFor="let class of listClass">{{class.ten|| "Loading..."}}</option>
                   </select>
             </div>
             <div class="schedule-search">
-                <button  (click)="searchSchedule($event)" ><i class="bi bi-search"></i> Tìm </button>
+<!--                <button  (click)="searchSchedule($event)" ><i class="bi bi-search"></i> Tìm </button>-->
             </div>
         </div>
         <div class="schedule-content">

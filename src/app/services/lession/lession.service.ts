@@ -9,9 +9,9 @@ import {LessionUpdate} from "../../core/dto/LessionUpdate";
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'Application/json'})
 }
-const apiUrl = 'https://website-truong-tieu-hoc.herokuapp.com/api/baiGiang';
-const api = 'https://website-truong-tieu-hoc.herokuapp.com/api';
-const apiLessionByIdUrl = "https://website-truong-tieu-hoc.herokuapp.com/api/baiGiang/";
+const apiUrl = 'http://localhost:8080/api/baiGiang';
+const api = 'http://localhost:8080/api';
+const apiLessionByIdUrl = "http://localhost:8080/api/baiGiang/";
 
 @Injectable({
   providedIn: 'root'

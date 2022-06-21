@@ -7,7 +7,7 @@ import {MonHoc} from 'src/app/core/model/MonHoc';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'Application/json'})
 }
-const urlGetSubjectFromblock = 'https://website-truong-tieu-hoc.herokuapp.com/api/monhoc/';
+const urlGetSubjectFromblock = 'http://localhost:8080/api/monhoc/';
 
 @Injectable({
   providedIn: 'root'

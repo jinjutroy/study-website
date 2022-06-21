@@ -31,16 +31,17 @@
   <div *ngIf="lopHocSinhReponse!=null" class="row">
     <div class="col-6 row">
       <div class="col-6">
-        <select class="form-select" #idgv >
-          <option *ngFor="let gv of listgv" [selected]="gv.id==lopHocSinhReponse!.idgv" value="{{gv.id}}">{{gv.ten}}</option>
+        <p class="mb-2 mt-2">Cô giáo chủ nhiệm :</p>
+        <select class="form-select" #idgv>
+          <option *ngFor="let gv of listgv" [selected]="gv.id==lopHocSinhReponse!.idgv"
+                  value="{{gv.id}}">{{gv.ten}}</option>
         </select>
       </div>
+      <p class="mb-2 mt-2"></p>
       <div class="col-6">
         <button class="btn btn-info" (click)="updateGv(idgv.value)"> Sửa</button>
       </div>
     </div>
-
-
   </div>
 
   <table class="table mt-4 table-hover rounded p-3 table-bordered" *ngIf="lopHocSinhReponse!=null">
@@ -73,7 +74,8 @@
       <td>{{hocsinh.sdtBoMe}}</td>
       <td><a class="btn btn-warning" (click)="openDialogDetail(hocsinh.id)"><i class="bi bi-eye"></i></a></td>
       <td><a class="btn btn-info" (click)="openDialogUpdate(hocsinh.id)"><i class="bi bi-pencil-square"></i></a></td>
-      <td><a style="cursor: pointer" class="btn btn-danger" (click)="openDialogDelete(hocsinh.id)"><i class="bi bi-trash" style="color:white;"></i></a></td>
+      <td><a style="cursor: pointer" class="btn btn-danger" (click)="openDialogDelete(hocsinh.id)"><i
+        class="bi bi-trash" style="color:white;"></i></a></td>
     </tr>
     </tbody>
   </table>

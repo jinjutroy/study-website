@@ -38,7 +38,8 @@ export class CreateStudentComponent implements OnInit {
         tenBo: ['', Validators.required],
         tenMe: ['', Validators.required],
         tonGiao: ['', Validators.required],
-        sdtBoMe: ['', [Validators.required]],
+        sdtBoMe: ['', [Validators.required,Validators.pattern("[0-9 ]{10}")]],
+        // [Validators.required, Validators.pattern("[0-9 ]{11}")]
         hinhAnh: ['', Validators.required],
         ngaySinh: ['', Validators.required],
         idLop: [this.data, Validators.required]
@@ -67,7 +68,6 @@ export class CreateStudentComponent implements OnInit {
 
   createStudent() {
     // this.studentForm.patchValue({"hinhAnh":this.link})
-    console.log(this.studentForm.value)
     this.dialogRef.close();
     this.studentService.createStudent({
       ten: this.studentForm.value.ten,

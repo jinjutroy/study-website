@@ -9,7 +9,7 @@ import {ImageDTO} from "../../core/dto/imageDTO";
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'Application/json'})
 }
-const apiUrl = 'https://website-truong-tieu-hoc.herokuapp.com/api/listNew';
+const apiUrl = 'http://localhost:8080/api/listNew';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class NewsService {
   constructor(private httpClient: HttpClient, private authService: AuthService) {
   }
 
-  private readonly api = 'https://website-truong-tieu-hoc.herokuapp.com/api';
+  private readonly api = 'http://localhost:8080/api';
 
   private readonly JWT = this.authService.getToken() || "";
   headers = new HttpHeaders({
@@ -40,5 +40,10 @@ export class NewsService {
 
   create(data: { noiDung: any; imageList: ImageDTO[][]; tieuDe: any }){
     return this.httpClient.post(apiUrl + '/create' , data, {headers: this.headers});
+  }
+
+  updatetin(data:{ id: any,noiDung: any; imageList: ImageDTO[][]; tieuDe: any }){
+    console.log(data)
+    return this.httpClient.put('http://localhost:8080/api/listNew/update' , data, {headers: this.headers});
   }
 }

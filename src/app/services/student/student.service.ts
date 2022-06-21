@@ -3,11 +3,12 @@ import { CauHoi } from '../../core/model/CauHoi';
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError, Observable, pipe} from 'rxjs';
+import {HocSinhSearchDTO} from "../../core/dto/HocSinhSearchDTO";
 
 const httpOptions ={
   headers:new HttpHeaders({'Content-Type':'Application/json'})
 }
-const urlSearchId = 'https://website-truong-tieu-hoc.herokuapp.com/api/student/search?id=';
+const urlSearchId = 'http://localhost:8080/api/student/search?name=';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ const urlSearchId = 'https://website-truong-tieu-hoc.herokuapp.com/api/student/s
 export class StudentService {
 
   constructor(private httpClient:HttpClient) { }
-  getStudentByID(id: string): Observable<HocSinh>{
-    return this.httpClient.get<HocSinh>(urlSearchId + id).pipe();
+  getStudentByName(name: string): Observable<HocSinhSearchDTO[]>{
+    return this.httpClient.get<HocSinhSearchDTO[]>(urlSearchId + name).pipe();
   }
 }

@@ -2,34 +2,36 @@
     <div class="container">
         <header>Tìm kiếm học sinh</header>
         <form [formGroup]="form" class="student-container__header" (ngSubmit)="handlerSearchStudent()">
-            <div class="student-container__input"><input (focus)="setCheck()" formControlName="mshs" type="text" placeholder="Mã số học sinh. - VD: HS0007"></div>
+            <div class="student-container__input"><input  formControlName="mshs" type="text" placeholder="Tìm kiếm theo tên "></div>
             <button type="submit" class="student-container__button">Tìm kiếm <i class="bi bi-search"></i></button>
         </form>
         <div class="student-content">
             <table class="schedule-table table table-bordered">
                 <thead>
                     <tr>
-                        <th class="col-table-student" scope="col">MSHS</th>
+                        <th class="col-table-student" scope="col">STT</th>
                         <th class="col-table-student" scope="col">Tên</th>
                         <th class="col-table-student" scope="col">Ngày sinh</th>
                         <th class="col-table-student" scope="col">Địa chỉ</th>
                         <th class="col-table-student" scope="col">Lớp</th>
-                        <th class="col-table-student" scope="col">Khóa học</th> 
+                        <th class="col-table-student" scope="col">Khoá</th>
+
                     </tr>
                 </thead>
-                <tbody>
-                    <tr *ngIf="student.length > 0">
-                        <th scope="row">{{student[0]?.id}}</th> 
-                        <th scope="row">{{student[0]?.ten}}</th> 
-                        <th scope="row">{{student[0]?.ngaySinh}}</th> 
-                        <th scope="row">{{student[0]?.diaChi}}</th> 
-                        <th scope="row">{{student[0]?.diaChi}}</th> 
-                        <th scope="row">{{student[0]?.diaChi}}</th> 
-                    </tr> 
+                <tbody *ngIf="student.length > 0" >
+                    <tr *ngFor="let stu of student; let i=index" >
+                        <th scope="row">{{i+1}}</th>
+                        <th scope="row">{{stu.ten}}</th>
+                        <th scope="row">{{stu.ngaysinh}}</th>
+                        <th scope="row">{{stu.diaChi}}</th>
+                        <th scope="row">{{stu.tenlop}}</th>
+                        <th scope="row">{{stu.khoa}}</th>
+                    </tr>
                 </tbody>
             </table>
         </div>
-        <div *ngIf="checkStudent" class="student-content__message">Không tìm thấy sinh viên. Vui lòng kiểm tra Mã số học sinh.</div>
+
+        <div *ngIf="student.length == 0" class="student-content__message">Không tìm thấy sinh viên. Vui lòng kiểm tra tên học sinh.</div>
 
     </div>
 </div>

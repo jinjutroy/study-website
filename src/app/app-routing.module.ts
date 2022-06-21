@@ -14,6 +14,9 @@ import {NewsComponent} from "./views/news/news.component";
 import { DetailLessionComponent } from './views/detail-lession/detail-lession.component';
 import {ListTeacherComponent} from "./views/manager-teacher/list-teacher/list-teacher.component";
 import {ListClassComponent} from "./views/manager-class/list-class/list-class.component";
+import {ChangePasswordComponent} from "./views/change-password/change-password.component";
+import {ListStudentTeacherComponent} from "./views/list-student-teacher/list-student-teacher.component";
+
 
 const routes: Routes = [
 
@@ -37,6 +40,8 @@ const routes: Routes = [
   { path: 'teachers', component: ListTeacherComponent },
   { path: 'tabletime', component: TimetableteacherComponent,canActivate:[TeacherGuard] },
   { path: 'classes', component: ListClassComponent },
+  { path: 'change-password', component: ChangePasswordComponent },
+  { path: 'list-student-teacher', component: ListStudentTeacherComponent },
   // {path: "**", component: PagenotfoundComponent}
   { path: '**', pathMatch: 'full',
   component: PagenotfoundComponent },

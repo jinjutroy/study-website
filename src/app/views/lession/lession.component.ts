@@ -17,7 +17,8 @@ export class LessionComponent implements OnInit {
   lessionImage: string = "assets/images/lession.png";
   allListLession: BaiGiang[] = []
   listLession: BaiGiang[] = [];
-
+  p: number | any;
+  checkPagination = true;
   listSubject: MonHoc[] = [];
   listChapter: ChuongHoc[] = [];
   idSubject: number = 0;
@@ -48,7 +49,7 @@ export class LessionComponent implements OnInit {
       this.listChapter = [...response];
     });
   }
-  handlerOnChangeChapter(e: any){  
+  handlerOnChangeChapter(e: any){
     this.message = "Loading...";
     setTimeout(()=>{
       this.message = "Bài giảng đang được cập nhật."
@@ -60,13 +61,13 @@ export class LessionComponent implements OnInit {
         return this.listLession =  this.allListLession;
       });
     }
-    this.allListLession = [];  
-    this.listLession = [];  
-    } 
+    this.allListLession = [];
+    this.listLession = [];
+    }
   changeValueLession(e: any){
      setTimeout(()=>{
       this.listLession = this.allListLession.filter(x =>{
-        return x.ten.toLowerCase().search(e.target.value.toLowerCase()) !== -1; 
+        return x.ten.toLowerCase().search(e.target.value.toLowerCase()) !== -1;
       });
      },600)
   }
