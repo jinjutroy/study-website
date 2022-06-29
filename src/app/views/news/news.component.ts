@@ -1,6 +1,7 @@
 import { TinTuc } from './../../core/model/TinTuc';
 import { NewsService } from './../../services/news/news.service';
 import { Component, OnInit } from '@angular/core';
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-news',
@@ -10,19 +11,34 @@ import { Component, OnInit } from '@angular/core';
 export class NewsComponent implements OnInit {
 
   listNews: TinTuc[] = [];
-  topNews: TinTuc[] = [] ;
+  topNews: TinTuc[]=[] ;
   listImgTopNews:{id: number, linkimage: string}[] = [];
   index = 0;
-  constructor(private _newsService: NewsService) {
+  constructor(private _newsService: NewsService,private sanitizer: DomSanitizer) {
+
+  }
+
+  transform(link:string) {
+// @ts-ignore
+    let url = link;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
 
   }
    ngOnInit(): void {
-      const response = JSON.parse(localStorage.getItem('dataNews')|| "");
-        this.topNews = [response[this.index]];
-        this.listNews = response;
-     console.log(this.listNews)
-     console.log(this.topNews)
-        this.listImgTopNews = this.topNews[0].images;
+     this._newsService.getAllNews().subscribe(data=>{
+       this.listNews=data;
+       this.topNews=data;
+       this.listImgTopNews = this.topNews[0].images;
+     })
+
+
+
+     //  const response = JSON.parse(localStorage.getItem('dataNews')|| "");
+     //    this.topNews = [response[this.index]];
+     //    this.listNews = response;
+     // console.log(this.listNews)
+     // console.log(this.topNews)
+
   }
   clickNewsExtra(e: any){
     this.topNews = [this.listNews[e.target.id - 1]];

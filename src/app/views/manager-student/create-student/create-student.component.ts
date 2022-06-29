@@ -47,8 +47,25 @@ export class CreateStudentComponent implements OnInit {
   }
 
   isdisplay: boolean = false
-
-  showPreview(event: any) {
+    //  titleCase(str:string) {
+    //     var splitStr = str.toLowerCase().replace(/./, (x) => x.toUpperCase()).replace(/[^']\b\w/g, (y) => y.toUpperCase());
+    //     return splitStr;
+    // }
+   titleCase(input:string) {
+        var CapitalizeWords = input[0].toUpperCase();
+        for (var i = 1; i <= input.length - 1; i++) {
+            let currentCharacter,
+                previousCharacter = input[i - 1];
+            if (previousCharacter && previousCharacter == ' ') {
+                currentCharacter = input[i].toUpperCase();
+            } else {
+                currentCharacter = input[i];
+            }
+            CapitalizeWords = CapitalizeWords + currentCharacter;
+        }
+        return CapitalizeWords;
+    }
+    showPreview(event: any) {
     this.isdisplay = true
     // this.isDisplay = true;
     this.selectedImage = event.target.files[0];
@@ -65,25 +82,29 @@ export class CreateStudentComponent implements OnInit {
     ).subscribe();
 
   }
-
+    isSubmitted:boolean=false;
   createStudent() {
     // this.studentForm.patchValue({"hinhAnh":this.link})
-    this.dialogRef.close();
+      this.isSubmitted=true;
+      console.log(this.isSubmitted)
+      if(this.studentForm.valid){
+  this.studentForm.value.hinhAnh='';
     this.studentService.createStudent({
-      ten: this.studentForm.value.ten,
-      diaChi: this.studentForm.value.diaChi,
+      ten: this.titleCase(this.studentForm.value.ten),
+      diaChi: this.titleCase(this.studentForm.value.diaChi),
       gioiTinh: this.studentForm.value.gioiTinh,
-      danToc: this.studentForm.value.danToc,
-      tenBo: this.studentForm.value.tenBo,
-      tenMe: this.studentForm.value.tenMe,
-      tonGiao: this.studentForm.value.tonGiao,
+      danToc: this.titleCase(this.studentForm.value.danToc),
+      tenBo: this.titleCase(this.studentForm.value.tenBo),
+      tenMe: this.titleCase(this.studentForm.value.tenMe),
+      tonGiao: this.titleCase(this.studentForm.value.tonGiao),
       sdtBoMe: this.studentForm.value.sdtBoMe,
       hinhAnh: this.link,
       ngaySinh: this.studentForm.value.ngaySinh,
       idLop: this.studentForm.value.idLop
     }).subscribe(data => {
+        this.dialogRef.close();
       this.snackbar.open("thêm mới học sinh thành công", "", {duration: 3000})
-    })
+    })}
   }
 
   getCurrentDateTime(): string {

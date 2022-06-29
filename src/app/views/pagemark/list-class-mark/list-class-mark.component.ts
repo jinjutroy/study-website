@@ -51,20 +51,21 @@ export class ListClassMarkComponent implements OnInit {
     if (this.namhocValue == null && this.khoiValue == null) {
       this.snackbar.open("Vui lòng chọn đầy đủ khôi và năm học");
     }
-
     if (this.namhocValue != null && this.khoiValue != null) {
       this.markService.getListMarkByidKhoiAndYear(this.khoiValue, this.namhocValue).subscribe(data => {
         console.log(data)
           this.listLops = data;
         }
-      )
+      ,e=>{
+            this.snackbar.open("Khối này chưa có lớp","ok",{duration:3000})
+          })
     }
   }
   move(a:any){
     if(a!=null){
       this.route.navigateByUrl("/updatemark",{ state:{ name:a }})
     }else {
-      this.snackbar.open("giáo viên không có nehs","ok",{duration:3000})
+      this.snackbar.open("giáo viên không có nhé vui lòng cập nhật giáo viên chủ nhiệm cho lớp này","ok",{duration:3000})
     }
   }
 }

@@ -37,6 +37,10 @@ export class LessionService {
     return this.httpClient.get<BaiGiang[]>(apiLessionByIdUrl + "search?idmon=" + idSubject + "&idchuong=" + idChapter).pipe();
 
   }
+  getLessionByChapterAndSubjectAndNames(idChapter: number, idSubject: number,name:string): Observable<BaiGiang[]> {
+    return this.httpClient.get<BaiGiang[]>(apiLessionByIdUrl + "search?idmon=" + idSubject + "&idchuong=" + idChapter+ "&name=" + name).pipe();
+
+  }
 
   getLessionByName(name: string): Observable<BaiGiang[]> {
     return this.httpClient.get<BaiGiang[]>(apiLessionByIdUrl + "search?name=" + name);

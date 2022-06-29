@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
     });
   }
   login() {
+    this.error="";
     this.loginService.login(this.myForm.value).subscribe(
       (data:any) =>
       {

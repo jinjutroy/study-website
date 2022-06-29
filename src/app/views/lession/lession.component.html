@@ -24,9 +24,9 @@
         </div>
         <div class="section-search">
             <form class="input-group">
-                    <input type="text" class="form-control section-select" placeholder="Nhập từ khoá muốn tìm kiếm"
-                    aria-label="Nhập từ khoá muốn tìm kiếm" aria-describedby="button-addon2" (input)="changeValueLession($event)">
-                <button class="btn btn-outline-secondary btn-section-search" type="button" id="button-addon2">Tìm kiếm</button>
+                    <input type="text" class="form-control section-select" placeholder="Nhập từ khoá muốn tìm kiếm" #namesearch
+                    aria-label="Nhập từ khoá muốn tìm kiếm" aria-describedby="button-addon2" >
+                <button class="btn btn-outline-secondary btn-section-search" (click)="changeValueLession(namesearch.value)" type="button" id="button-addon2">Tìm kiếm</button>
 
             </form>
         </div>

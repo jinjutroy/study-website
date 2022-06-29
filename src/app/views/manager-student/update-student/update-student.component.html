@@ -19,7 +19,7 @@
       <div class="form-group row col-6">
         <label  class="col-sm-2 col-form-label">Ngày sinh </label>
         <div class="col-sm-10">
-          <input type="date" formControlName="ngaySinh" value="{{ngay}}" class="form-control"  >
+          <input type="date" formControlName="ngaySinh" value="{{ngay}}" (change)="onchangeday($event)"  class="form-control"  >
         </div>
         <small style="color: red;margin-left: 79px"
                *ngIf="studentForm.get('ngaySinh')?.hasError('required')  && studentForm.get('ngaySinh')?.touched">

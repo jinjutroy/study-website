@@ -26,13 +26,14 @@
   </div>
   <button class="btn btn-success mt-3" *ngIf="isDisplay" (click)="openDialogCreate()">Thêm mới</button>
   <h4 *ngIf="isDisplayLoad">Đang kiểm tra dữ liệu vui lòng chờ vài phút</h4>
-  <div style="margin-top: 300px" [hidden]="lopHocSinhReponse!=null"></div>
+  <div style="margin-top: 600px" [hidden]="lopHocSinhReponse!=null"></div>
 
   <div *ngIf="lopHocSinhReponse!=null" class="row">
     <div class="col-6 row">
       <div class="col-6">
         <p class="mb-2 mt-2">Cô giáo chủ nhiệm :</p>
         <select class="form-select" #idgv>
+          <option selected>Chọn giáo viên</option>
           <option *ngFor="let gv of listgv" [selected]="gv.id==lopHocSinhReponse!.idgv"
                   value="{{gv.id}}">{{gv.ten}}</option>
         </select>
@@ -57,7 +58,7 @@
       <th scope="col">Họ tên mẹ</th>
       <th scope="col">Số điện thoại</th>
       <th scope="col">Chi tiết</th>
-      <th scope="col"> Sửa</th>
+      <th scope="col">Sửa</th>
       <th scope="col">Xoá</th>
     </tr>
     </thead>
@@ -82,5 +83,5 @@
   <pagination-controls class="text-right" *ngIf="checkPagination" [directionLinks]=true [autoHide]=true
                        [responsive]=true (pageChange)="p=$event" previousLabel="Trước"
                        nextLabel="Sau"></pagination-controls>
-
+  <div style="margin-top: 200px" [hidden]="lopHocSinhReponse==null"></div>
 </div>

@@ -12,7 +12,8 @@
 
         </div>
         <small style="color: red;margin-left: 79px"
-           *ngIf="studentForm.get('ten')?.hasError('required')  && studentForm.get('ten')?.touched">
+           *ngIf="studentForm.get('ten')?.hasError('required')  && studentForm.get('ten')?.touched ||
+             (studentForm.get('ten')?.untouched && isSubmitted)">
           Tên học sinh không được để trống
         </small>
       </div>
@@ -22,7 +23,8 @@
         <input type="date" formControlName="ngaySinh" class="form-control"  >
       </div>
         <small style="color: red;margin-left: 79px"
-           *ngIf="studentForm.get('ngaySinh')?.hasError('required')  && studentForm.get('ngaySinh')?.touched">
+           *ngIf="(studentForm.get('ngaySinh')?.hasError('required')  && studentForm.get('ngaySinh')?.touched) ||
+             (studentForm.get('ngaySinh')?.untouched && isSubmitted)">
           Ngày sinh không được để trống
         </small>
       </div>
@@ -76,7 +78,7 @@
         <label for="ten" class="col-sm-2 col-form-label">Giới tính </label>
         <div class="col-sm-10">
         <select class="custom-select" formControlName="gioiTinh">
-          <option selected>Chọn giới tính</option>
+          <option selected value="">Chọn giới tính</option>
           <option value="Nam">Nam</option>
           <option value="Nữ">Nữ</option>
         </select>
@@ -135,8 +137,7 @@
     <div class="form-group ">
       <div class=" d-flex justify-content-center">
         <button class="btn btn-danger" mat-dialog-close> Thoát</button>
-        <button type="submit" [disabled]="studentForm.invalid" class="btn btn-success ml-5">Thêm mới</button>
-
+        <button type="submit" class="btn btn-success ml-5">Thêm mới</button>
       </div>
     </div>
   </form>

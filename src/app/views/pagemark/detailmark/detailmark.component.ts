@@ -4,6 +4,7 @@ import {AuthService} from "../../../core/services/pagelogin/auth.service";
 import {Diem} from "../../../core/model/Diem";
 import {NamHoc} from "../../../core/model/NamHoc";
 import {StudentsService} from "../../../core/services/pageManagerStudent/students.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-detailmark',
@@ -15,7 +16,8 @@ export class DetailmarkComponent implements OnInit {
 
   constructor(private markservice: MarkService,
               private auth: AuthService,
-              private studentService: StudentsService) {
+              private studentService: StudentsService,
+              private snacbar:MatSnackBar) {
   }
   namhocValue:any;
   thisData!: Diem[];
@@ -52,6 +54,8 @@ export class DetailmarkComponent implements OnInit {
     this.iduser = this.auth.getUser().toLocaleUpperCase();
     this.markservice.getMarkByYearAndIdStudent(mark,this.iduser).subscribe(data => {
       this.thisData = data
+    },()=>{
+      this.snacbar.open("Không tìm thấy điểm của năm học này","ok",{duration:3000})
     })
   }
 }

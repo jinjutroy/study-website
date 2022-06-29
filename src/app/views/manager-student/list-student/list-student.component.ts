@@ -143,7 +143,7 @@ export class ListStudentComponent implements OnInit {
       data: this.idlop
     });
     dialogRef.afterClosed().subscribe(() => {
-      this.ngOnInit()
+      this.handlerOnChangeLopNewTime(this.idlop)
     })
   }
 

@@ -40,7 +40,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let teacher of listgv |paginate:{itemsPerPage:3,currentPage:p};let i=index">
+    <tr *ngFor="let teacher of listgv |paginate:{itemsPerPage:5,currentPage:p};let i=index">
       <th scope="row">{{i + 1}}</th>
       <td>{{teacher.id}}</td>
       <td>{{teacher.ten}}</td>
@@ -60,6 +60,7 @@
   <pagination-controls class="text-right" *ngIf="checkPagination" [directionLinks]=true [autoHide]=true
                        [responsive]=true (pageChange)="p=$event" previousLabel="Trước"
                        nextLabel="Sau"></pagination-controls>
+  <div style="margin-top: 200px" *ngIf="!checkPagination"></div>
 </div>
 
 

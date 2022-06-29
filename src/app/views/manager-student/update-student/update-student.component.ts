@@ -71,34 +71,49 @@ export class UpdateStudentComponent implements OnInit {
       this.studentForm.value.ngaySinh = data.ngaySinh;
       this.link = data.hinhAnh
     })
-
-
   }
-
+  titleCase(input:string) {
+    var CapitalizeWords = input[0].toUpperCase();
+    for (var i = 1; i <= input.length - 1; i++) {
+      let currentCharacter,
+          previousCharacter = input[i - 1];
+      if (previousCharacter && previousCharacter == ' ') {
+        currentCharacter = input[i].toUpperCase();
+      } else {
+        currentCharacter = input[i];
+      }
+      CapitalizeWords = CapitalizeWords + currentCharacter;
+    }
+    return CapitalizeWords;
+  }
   transform() {
 // @ts-ignore
     let url = this.link;
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
+  onchangeday(e:any){
+    this.ngay=e.target.value;
+  }
 
   updateStudent() {
     this.studentService.updateStudent({
       id: this.studentForm.value.id,
-      ten: this.studentForm.value.ten,
-      diaChi: this.studentForm.value.diaChi,
+      ten: this.titleCase(this.studentForm.value.ten),
+      diaChi: this.titleCase(this.studentForm.value.diaChi),
       gioiTinh: this.studentForm.value.gioiTinh,
-      danToc: this.studentForm.value.danToc,
-      tenBo: this.studentForm.value.tenBo,
-      tenMe: this.studentForm.value.tenMe,
-      tonGiao: this.studentForm.value.tonGiao,
+      danToc: this.titleCase(this.studentForm.value.danToc),
+      tenBo: this.titleCase(this.studentForm.value.tenBo),
+      tenMe: this.titleCase(this.studentForm.value.tenMe),
+      tonGiao: this.titleCase(this.studentForm.value.tonGiao),
       sdtBoMe: this.studentForm.value.sdtBoMe,
       hinhAnh: this.link,
-      ngaySinh: this.studentForm.value.ngaySinh,
+      ngaySinh: this.ngay,
       idLop: this.studentForm.value.idLop
     }).subscribe(value => {
       this.dialogRef.close();
       this.snackbar.open("Bạn đã cập nhật thành công", "ok", {duration: 3000})
     }, e => {
+      this.snackbar.open("Bạn cập nhật không thành công", "ok", {duration: 3000})
       console.log(e);
     })
   }

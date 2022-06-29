@@ -1,9 +1,8 @@
+import {Images} from "../dto/images";
+
 export interface TinTuc {
   id: number,
   tieuDe: string,
   noiDung:string,
-  images: {
-    id: number,
-    linkimage: string,
-  }[];
+  images: Images[]
 }

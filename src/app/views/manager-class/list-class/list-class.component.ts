@@ -8,9 +8,7 @@ import {NamHoc} from "../../../core/model/NamHoc";
 import {Khoi} from "../../../core/model/Khoi";
 import {LopGiaoVienReponse} from "../../../core/dto/LopGiaoVienReponse";
 import {ClassService} from "../../../core/services/class/class.service";
-import {DeleteTeacherComponent} from "../../manager-teacher/delete-teacher/delete-teacher.component";
 import {MatDialog} from "@angular/material/dialog";
-import {CreateTeacherComponent} from "../../manager-teacher/create-teacher/create-teacher.component";
 import {CreateClassComponent} from "../create-class/create-class.component";
 
 @Component({
@@ -65,7 +63,7 @@ export class ListClassComponent implements OnInit {
         }
         , error => {
 
-          console.log(error)
+            this.snackbar.open("Không có lớp của khối này", "ok", {duration: 3000});
         })
     }
   }
@@ -75,6 +73,10 @@ export class ListClassComponent implements OnInit {
   }
 
   upClass(lop: LopGiaoVienReponse) {
+    if(lop.coChuNhiem=="chưa có"){
+      this.snackbar.open("chưa có giáo viên không cho lên lớp  ", "ok", {duration: 3000});
+
+    }else
     if (lop.tenLop.charAt(0) == '5') {
       this.snackbar.open("Đã đạt tối đa lớp", "ok", {duration: 3000});
     } else {
@@ -107,7 +109,7 @@ export class ListClassComponent implements OnInit {
     if (a != null) {
       this.route.navigateByUrl("/updatemark", {state: {name: a}})
     } else {
-      this.snackbar.open("giáo viên không có nehs", "ok", {duration: 3000})
+      this.snackbar.open("giáo viên không có nhé", "ok", {duration: 3000})
     }
   }
 

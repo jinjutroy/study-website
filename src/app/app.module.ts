@@ -43,6 +43,7 @@ import {ManagerNewRoutingModule} from "./views/manager-new/manager-new-routing.m
 import {NgxPaginationModule} from "ngx-pagination";
 import { ChangePasswordComponent } from './views/change-password/change-password.component';
 import { ListStudentTeacherComponent } from './views/list-student-teacher/list-student-teacher.component';
+import { ListQuestionComponent } from './views/list-question/list-question.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { ListStudentTeacherComponent } from './views/list-student-teacher/list-s
     NewsComponent,
     ChangePasswordComponent,
     ListStudentTeacherComponent,
+    ListQuestionComponent,
 
 
     ],

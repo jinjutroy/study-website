@@ -50,7 +50,6 @@ export class ListTeacherComponent implements OnInit {
 
   }
   searchTeacher(name: string) {
-
 // @ts-ignore
     let phong = document.getElementById("phong").value;
     if (phong == 'null' && name != null) {
@@ -65,6 +64,7 @@ export class ListTeacherComponent implements OnInit {
       )
     }
     if (phong != 'null' && name == null) {
+      this.checkPagination = true;
       this.teacherService.searchByPhongBan(phong).subscribe(
         data => {
           this.listgv = data
@@ -76,10 +76,11 @@ export class ListTeacherComponent implements OnInit {
       )
     }
     if (phong != 'null' && name != null) {
+      this.checkPagination = true;
       this.teacherService.searchByNameAndPhongBan(phong, name).subscribe(
         data => {
           this.listgv = data
-          if (data.length < 3) {
+          if (data.length < 5) {
             this.checkPagination = false;
           }
           this.p = 1;
@@ -94,7 +95,10 @@ export class ListTeacherComponent implements OnInit {
       height: '700px',
     });
     dialogRef.afterClosed().subscribe(() => {
-      this.ngOnInit()
+      // this.ngOnInit()
+      //     .then(() => {
+            window.location.reload();
+          // });
     })
   }
 
@@ -105,14 +109,15 @@ export class ListTeacherComponent implements OnInit {
       data: id
     });
     dialogRef.afterClosed().subscribe(() => {
-     this.ngOnInit()
+      window.location.reload();
     })
   }
   openDialogUpdate(id: string) {
     const dialogRef = this.matDialog.open(UpdateTeacherComponent, {
       width: '1000px',
       height: '700px',
-      data: id}
+      data: id
+    }
     );
     dialogRef.afterClosed().subscribe(() => {
   this.ngOnInit()
