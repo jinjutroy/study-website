@@ -26,9 +26,8 @@ export class UpdateTeacherComponent implements OnInit {
               private snackbar: MatSnackBar,
               private dialogRef: MatDialogRef<UpdateTeacherComponent>,) {
   }
-
   selectedImage: any = null;
-  isdisplay: boolean = false
+  isdisplay: boolean = false;
   link!: string;
   teacherForm!: FormGroup;
   listphongbans: PhongBan[] = [];

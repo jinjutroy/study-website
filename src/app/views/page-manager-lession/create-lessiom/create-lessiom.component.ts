@@ -68,8 +68,6 @@ export class CreateLessiomComponent implements OnInit {
       this.isDisplayVideo = false;
       this.lessionForm.reset();
     })
-
-    console.log(this.lessionForm.value);
   }
 
   handlerOnChangeLession(e: any) {
@@ -83,7 +81,6 @@ export class CreateLessiomComponent implements OnInit {
 // @ts-ignore
     let url = this.link;
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
-
   }
 
   handlerOnChangeSubject(e: any) {
@@ -106,7 +103,6 @@ export class CreateLessiomComponent implements OnInit {
         fileRef.getDownloadURL().subscribe((url) => {
           this.isDisplay = false;
           this.isDisplayVideo = true;
-
           // this.lessionForm.patchValue({"fileVideo":url})
           this.link = url;
 
@@ -115,6 +111,7 @@ export class CreateLessiomComponent implements OnInit {
     ).subscribe();
 
   }
+
 
   getCurrentDateTime(): string {
     return formatDate(new Date(), 'dd-MM-yyyyhhmmssa', 'en-US');

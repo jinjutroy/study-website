@@ -60,8 +60,8 @@
             <button class="dropdown-item"  (click)='handlerClickNavbar($event)' [ngClass]="{'active': active === 'listmark'}"  routerLink="/listmark" type="button">Quản lí điểm</button>
             <button class="dropdown-item" (click)='handlerClickNavbar($event)' routerLink="/classes" [ngClass]="{'active': active === 'classes'}"  type="button">Quản lí lớp</button>
             <button class="dropdown-item" (click)='handlerClickNavbar($event)' routerLink="/updateTimeTable" [ngClass]="{'active': active === 'updateTimeTable'}"  type="button">Quản lí thời khoá biểu</button>
-            <button class="dropdown-item" type="button">Quản lí tin tức</button>
-            <button class="dropdown-item" type="button">Quản lí bài giảng</button>
+            <button class="dropdown-item" type="button" >Quản lí tin tức</button>
+            <button class="dropdown-item" type="button" (click)='handlerClickNavbar($event)' [ngClass]="{'active': active === 'list-lession'}" routerLink="/list-lession">Quản lí bài giảng</button>
             <!--            <button class="dropdown-item" (click)="logout()" type="button">Đăng xuất</button>-->
           </div>
         </div>
